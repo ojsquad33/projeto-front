@@ -2,11 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import MenuHead from './menus/MenuHead';
 import reportWebVitals from './reportWebVitals';
+import Avaliacoes from './menus/Avaliacoes';
+import Alertas from './menus/Alertas';
+import Conteudo from './menus/Conteudo';
+import NumPaginas from './menus/NumPaginas';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <MenuHead />
+    <Avaliacoes />
+    <Alertas />
+    <NumPaginas />
+    <Conteudo />
     <App />
   </React.StrictMode>
 );
