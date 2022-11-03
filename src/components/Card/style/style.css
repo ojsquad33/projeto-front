@@ -1,0 +1,10 @@
+.trilha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.trilha img {
+  width: 15vh;
+}/*# sourceMappingURL=style.css.map */

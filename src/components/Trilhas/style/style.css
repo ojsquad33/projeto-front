@@ -1,0 +1,37 @@
+.trilhas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 1.25rem;
+  position: absolute;
+  bottom: 10vh;
+  gap: 3vw;
+}
+.trilhas .card-collection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+}
+.trilhas img {
+  width: 3vh;
+}
+.trilhas img:active {
+  -webkit-animation: bounce 0.1s ease-in;
+          animation: bounce 0.1s ease-in;
+}
+
+@-webkit-keyframes bounce {
+  to {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(4px);
+  }
+}/*# sourceMappingURL=style.css.map */

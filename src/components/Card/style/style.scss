@@ -1,0 +1,14 @@
+@mixin display_flex($flex_direction, $justify_content, $align_items) {
+  display: flex;
+  flex-direction: $flex_direction;
+  justify-content: $justify_content;
+  align-items: $align_items;
+}
+
+.trilha {
+  @include display_flex(column, center, center);
+  gap: 10px;
+  & img {
+    width: 15vh;
+  }
+}
