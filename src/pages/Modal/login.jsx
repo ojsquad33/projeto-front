@@ -1,5 +1,6 @@
 import "./style/style.css";
 import Logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const ModalLogin = ({
   id = "close",
@@ -27,7 +28,9 @@ const ModalLogin = ({
           <div className="info">
             <input type="password" id="senha" placeholder="Senha" required />
           </div>
-          <button type="submit">Entrar</button>
+          <button type="submit">
+            <Link to="/home">Entrar</Link>
+          </button>
         </form>
         <p className="cadastro">
           Não tem uma conta?{" "}
