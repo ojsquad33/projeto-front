@@ -29,11 +29,13 @@
   cursor: pointer;
   display: block;
   background-color: #0dbc9e;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  padding: 1.9vh 8.5vw;
-  border-radius: 50px;
-  font-size: 1.75rem;
+  margin-top: 3vh;
+  margin-bottom: 1.5vh;
+  text-align: center;
+  width: 40vh;
+  height: 7vh;
+  border-radius: 5px;
+  font-size: 3vh;
   transition: 1s ease;
 }
 .call-to-action .btn-inicio:hover {
@@ -45,7 +47,7 @@
           animation: bounce 0.1s ease-in;
 }
 .call-to-action p {
-  font-size: 1.25rem;
+  font-size: 2vh;
   cursor: pointer;
 }
 .call-to-action p:hover {
