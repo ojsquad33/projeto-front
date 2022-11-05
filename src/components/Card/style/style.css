@@ -1,9 +1,13 @@
 .trilha {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 1vh;
+  padding: 1.3vh;
+  width: 25vh;
+  height: 25vh;
+  text-align: center;
 }
 .trilha img {
   width: 15vh;

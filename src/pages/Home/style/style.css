@@ -1,1 +1,47 @@
-/*# sourceMappingURL=style.css.map */
+.page-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/background-light.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  gap: 5vh;
+}
+.page-home .escolher-trilha {
+  font-size: 7vh;
+}
+.page-home .trilhas {
+  position: static;
+}
+.page-home .trilhas .seta {
+  filter: brightness(0);
+}
+.page-home .trilhas .card-collection {
+  gap: 5vh;
+}
+.page-home .trilhas .card-collection img {
+  filter: brightness(0.4);
+}
+.page-home .trilhas .trilha {
+  border: 7px solid #0dbc9e;
+  border-radius: 20px;
+  background-color: #fff;
+  font-size: 2vh;
+}
+.page-home .trilhas .trilha:first-child {
+  border: 7px solid #9026d0;
+}
+.page-home .trilhas .trilha:last-child {
+  border: 7px solid #ee41a8;
+}
+.page-home .trilhas .trilha img:hover {
+  transform: scale(1);
+}
+.page-home .trilhas .trilha img:active {
+  -webkit-animation: none;
+          animation: none;
+}/*# sourceMappingURL=style.css.map */

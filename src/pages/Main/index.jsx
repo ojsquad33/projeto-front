@@ -3,7 +3,7 @@ import Logo from "../../assets/logo.png";
 import Trilhas from "../../components/Trilhas";
 import ModalLogin from "../Modal/login";
 import ModalCadastro from "../Modal/cadastro";
-import { trilhas } from "../../components/bd";
+import trilhas from "../../services/database";
 import { useState } from "react";
 
 function Main() {
@@ -16,7 +16,7 @@ function Main() {
     setModalCadastroIsOpen(true);
   };
   return (
-    <div className="container">
+    <div className="main-container">
       <div className="call-to-action">
         <img className="main-logo" src={Logo} alt="Logo da Orange Evolution." />
         <button className="btn-inicio" onClick={handleModalLoginOpening}>

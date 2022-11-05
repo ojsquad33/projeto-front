@@ -26,7 +26,7 @@ const ModalCadastro = ({ id = "close", onClose = () => {} }) => {
           <div className="info">
             <input
               type="password"
-              id="senha"
+              id="repetir-senha"
               placeholder="Repita a senha"
               required
             />

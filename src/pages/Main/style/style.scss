@@ -11,7 +11,7 @@ $theme-color-3: #9026d0;
   align-items: $align_items;
 }
 
-.container {
+.main-container {
   @include display_flex(column, center, center);
   height: 100%;
   width: 100%;
@@ -20,6 +20,7 @@ $theme-color-3: #9026d0;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000;
+  color: #fff;
 }
 
 .call-to-action {
@@ -27,11 +28,11 @@ $theme-color-3: #9026d0;
   position: absolute;
   top: 5vh;
 
-  & .main-logo {
+  .main-logo {
     width: 30vh;
   }
 
-  & .btn-inicio {
+  .btn-inicio {
     all: unset;
     cursor: pointer;
     display: block;
@@ -54,7 +55,7 @@ $theme-color-3: #9026d0;
     }
   }
 
-  & p {
+  p {
     font-size: 2vh;
     cursor: pointer;
 

@@ -2,7 +2,7 @@ import ImageFullStack from "../assets/fullstack.png";
 import ImageQA from "../assets/qa.png";
 import ImageUXUI from "../assets/ui_ux.png";
 
-export const trilhas = [
+const trilhas = [
   {
     id: 1,
     trilha: "Desenvolvimento Full Stack",
@@ -42,3 +42,5 @@ export const trilhas = [
     selected: false,
   },
 ];
+
+export default trilhas;
