@@ -1,0 +1,147 @@
+/* Configurações gerais */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: auto;
+    height: auto;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration:underline;
+}
+/* Substituir pelo header final */
+header{
+    text-align: center;
+    padding: 20px;
+}
+/* Configurações da página principal */
+article{
+    display: flex;
+    background-image: url('background-light.png');
+    background-repeat: repeat-x;
+    background-position-y: center;
+    align-content: center;
+    justify-content: center;
+    column-gap: 3vw;
+    padding: 20px;
+}
+/* Titulo das aulas */
+div.titulo{
+    font-size: 1.7rem;
+}
+/* Conteudo das aulas */
+h1.conteudo{
+    color: black;
+    padding: 20px;
+}
+div.conteudo{
+    height: auto;
+}
+div.conteudo > h1{
+    color: black;
+}
+.conteudo{
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 50vw;
+    height: 80vh;
+}
+/* Lista das aulas */
+div.aulas{
+    background-color: lightgray;
+    color: black;
+    padding: 20px;
+    border: 5px solid gray;
+    border-radius: 20px;
+    width: 50vw;
+}
+/* Topicos das aulas */
+ul.materias{
+    line-height: 50px;
+}
+ul.topicos{
+    padding: 20px;
+    list-style: none;
+}
+ul.topicos > li{
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+ul.topicos > li:hover{
+    border-radius: 20px;
+    font-size: 1.4rem;
+    transition: 500ms;
+}
+/* Tópicos da aula (não está otimizado) */
+#concluir0, #concluir1, #concluir2, #concluir3{
+    margin-right: 10px;
+}
+#label-concluir{
+    cursor: pointer;
+}
+/* Accordion (menu expansivo) */
+details { overflow: hidden; }
+details summary {
+  position: relative;
+  z-index: 10;
+}
+@keyframes details-show {
+  from {
+    margin-bottom: -80%;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+details > *:not(summary) {
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  overflow: hidden;
+}
+details[open] > *:not(summary) { color: inherit; }
+summary{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+summary:hover{
+    background-color: gray;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* Barra de conclusão das aulas (apenas um exemplo) */
+/* (A) PROGRESS BAR WRAPPER */
+.prog-wrap * {
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.prog-wrap {
+    position: relative;
+    border: 1px solid #acb2d8;
+    max-width: auto;
+    border-radius: 20px;
+}
+.prog-wrap, .prog-bar, .prog-percent { height: 30px; }
+/* (B) PROGRESS BAR & PERCENTAGE */
+.prog-bar, .prog-percent {
+    position: absolute;
+    top: 0; left: 0;
+}
+/* (C) PERCENTAGE INDICATOR */
+.prog-percent {
+    display: flex;
+    align-items: center; justify-content: center;
+    width: 100%;
+    z-index: 2;
+}
+/* (D) PROGRESS BAR */
+.prog-bar {
+    width: 0;
+    background: lightgreen;
+    transition: width 0.5s;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Desenvolvimento Full Stack</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="progress-bar.js"></script>
+    </head>
+    <body>
+        <header>
+            Header
+        </header>
+        <article>
+            <!-- Conteúdo das aulas (Ex: video) -->
+            <div class="conteudo">
+                <h1>
+                    <details>
+                        <summary><a href="">Front End</a></summary>
+                        <div>
+                          <ul class="materias">
+                            <li><a href="">Back End</a></li>
+                            <li><a href="">Full Stack</a></li>
+                            <li><a href="">UI/UX</a></li>
+                          </ul>
+                        </div>
+                    </details>
+                </h1>
+                <iframe class="conteudo" width="auto" height="auto" src="https://www.youtube.com/embed/oPmhE_EmLjk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Lista das aulas -->
+            <div class="aulas">
+                <div id="progresso" class="prog-wrap">
+                    <div class="prog-bar"></div>
+                    <div class="prog-percent">0%</div>
+                  </div>
+                  <!-- Lista por cursos -->
+                <h1>
+                    <details>
+                        <summary><a href="">Java</a></summary>
+                          <ul class="materias">
+                            <li><a href="">C++</a></li>
+                            <li><a href="">TypeScript</a></li>
+                            <li><a href="">Python</a></li>
+                          </ul>
+                    </details>
+                </h1>
+                <!-- Tópicos das aulas (podem ser menus expansivos também) -->
+                <div>
+                    <ul class="topicos">
+                        <li><label id="label-concluir"><input type="checkbox" id="concluir0">Introdução</label></li>
+                        <li><label id="label-concluir"><input type="checkbox" id="concluir1">Estruturas</label></li>
+                        <li><label id="label-concluir"><input type="checkbox" id="concluir2">Exercícios</label></li>
+                        <li><label id="label-concluir"><input type="checkbox" id="concluir3">Conclusão</label></li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+        <!-- Obs: O Javascript não está otimizado! Apenas usei para testar o funcionamento da página -->
+        <script>
+            let progresso = progbar(document.getElementById("progresso"))
+            let percentual = 0
+            var checkbox = document.getElementById("concluir0")
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked) {
+                    percentual += 25
+                    progresso.set(percentual)
+                } else {
+                    percentual -= 25
+                    progresso.set(percentual)
+                }
+                })
+            var checkbox = document.getElementById("concluir1")
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked) {
+                    percentual += 25
+                    progresso.set(percentual)
+                } else {
+                    percentual -= 25
+                    progresso.set(percentual)
+                }
+                })
+            var checkbox = document.getElementById("concluir2")
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked) {
+                    percentual += 25
+                    progresso.set(percentual)
+                } else {
+                    percentual -= 25
+                    progresso.set(percentual)
+                }
+                })
+            var checkbox = document.getElementById("concluir3")
+            checkbox.addEventListener('change', (event) => {
+                if (event.currentTarget.checked) {
+                    percentual += 25
+                    progresso.set(percentual)
+                } else {
+                    percentual -= 25
+                    progresso.set(percentual)
+                }
+                })
+        </script>
+    </body>
+</html>
