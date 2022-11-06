@@ -1,3 +1,7 @@
+header {
+  z-index: 2;
+}
+
 .page-home {
   display: flex;
   flex-direction: column;
@@ -16,6 +20,7 @@
 }
 .page-home .trilhas {
   position: static;
+  cursor: pointer;
 }
 .page-home .trilhas .seta {
   filter: brightness(0);
@@ -55,5 +60,6 @@
 }
 
 .lista-curso {
-  position: absolute;
+  z-index: 1;
+  position: fixed;
 }/*# sourceMappingURL=style.css.map */

@@ -36,6 +36,15 @@ const trilhas = [
         imagem: ImageQA,
         descricao: "Trilha sobre UX/UI!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+          { nome: "Trilha 4" },
+        ],
       },
       {
         id: 3,
@@ -43,6 +52,13 @@ const trilhas = [
         imagem: ImageUXUI,
         descricao: "Trilha sobre QA!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2"],
+          },
+          { nome: "Trilha 2" },
+        ],
       },
     ],
   },
@@ -55,6 +71,14 @@ const trilhas = [
         imagem: ImageFullStack,
         descricao: "Trilha sobre Soft Skills!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+        ],
       },
       {
         id: 5,
@@ -62,6 +86,16 @@ const trilhas = [
         imagem: ImageUXUI,
         descricao: "Trilha sobre Soft Skills!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+          { nome: "Trilha 4" },
+          { nome: "Trilha 5" },
+        ],
       },
     ],
   },

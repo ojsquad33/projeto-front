@@ -5,7 +5,7 @@ import Anterior from "../../assets/prev.svg";
 import Card from "../Card";
 import { useState } from "react";
 
-const Trilhas = () => {
+const Trilhas = ({ setTrilhaAtual, setCliqueAtivo }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const length = trilhas.length;
 
@@ -26,7 +26,14 @@ const Trilhas = () => {
       />
       <div className="card-collection">
         {trilhas[currentPage].content.map((trilha, index) => {
-          return <Card key={index} trilha={trilha} />;
+          return (
+            <Card
+              key={index}
+              trilha={trilha}
+              setCliqueAtivo={setCliqueAtivo}
+              setTrilhaAtual={setTrilhaAtual}
+            />
+          );
         })}
       </div>
       <img
