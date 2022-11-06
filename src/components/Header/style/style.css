@@ -22,10 +22,16 @@ h1 {
 
 .right-side {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.1vh;
+  gap: 2vh;
 }
-.right-side p {
-  font-size: 2vh;
+.right-side img {
+  width: 5vh;
+  cursor: pointer;
+}
+.right-side img:hover {
+  transform: scale(1.1);
+}
+.right-side img:active {
+  -webkit-animation: bounce 0.1s ease-in;
+          animation: bounce 0.1s ease-in;
 }/*# sourceMappingURL=style.css.map */

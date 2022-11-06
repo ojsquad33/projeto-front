@@ -107,21 +107,3 @@ $theme-color-3: #9026d0;
     }
   }
 }
-
-@keyframes change-color {
-  0% {
-    background-color: $theme-color-2;
-  }
-  50% {
-    background-color: $theme-color-1;
-  }
-  100% {
-    background-color: $theme-color-3;
-  }
-}
-
-@keyframes bounce {
-  to {
-    transform: translateY(4px);
-  }
-}

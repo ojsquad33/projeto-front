@@ -27,16 +27,4 @@
 .trilhas img:active {
   -webkit-animation: bounce 0.1s ease-in;
           animation: bounce 0.1s ease-in;
-}
-
-@-webkit-keyframes bounce {
-  to {
-    transform: translateY(4px);
-  }
-}
-
-@keyframes bounce {
-  to {
-    transform: translateY(4px);
-  }
 }/*# sourceMappingURL=style.css.map */

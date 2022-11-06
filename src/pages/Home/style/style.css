@@ -32,10 +32,18 @@
   background-color: #fff;
   font-size: 2vh;
 }
+.page-home .trilhas .trilha:hover {
+  transform: scale(1.07);
+  transition: all 0.5s ease;
+}
+.page-home .trilhas .trilha:active {
+  -webkit-animation: bounce 0.1s ease-out;
+          animation: bounce 0.1s ease-out;
+}
 .page-home .trilhas .trilha:first-child {
   border: 7px solid #9026d0;
 }
-.page-home .trilhas .trilha:last-child {
+.page-home .trilhas .trilha:last-child:not(:first-child) {
   border: 7px solid #ee41a8;
 }
 .page-home .trilhas .trilha img:hover {
@@ -44,4 +52,8 @@
 .page-home .trilhas .trilha img:active {
   -webkit-animation: none;
           animation: none;
+}
+
+.lista-curso {
+  position: absolute;
 }/*# sourceMappingURL=style.css.map */

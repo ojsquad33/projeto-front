@@ -1,6 +1,8 @@
 import "./style/style.css";
 import Logo2 from "../../assets/logo2.svg";
+import Logout from "../../assets/logout.svg";
 import usuarios from "../../services/database_usuarios.js";
+import { Link } from "react-router-dom";
 
 const Header = ({ text }) => {
   return (
@@ -11,7 +13,9 @@ const Header = ({ text }) => {
       </div>
       <div className="right-side">
         <h1>Bem vindo, {usuarios[0].nome}!</h1>
-        <p>Sair</p>
+        <Link to="/">
+          <img src={Logout} alt="Clique para sair." />
+        </Link>
       </div>
     </header>
   );

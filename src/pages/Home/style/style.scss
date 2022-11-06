@@ -43,11 +43,20 @@ $theme-color-3: #9026d0;
       background-color: #fff;
       font-size: 2vh;
 
+      &:hover {
+        transform: scale(1.07);
+        transition: all 0.5s ease;
+      }
+
+      &:active {
+        animation: bounce 0.1s ease-out;
+      }
+
       &:first-child {
         border: 7px solid $theme-color-3;
       }
 
-      &:last-child {
+      &:last-child:not(:first-child) {
         border: 7px solid $theme-color-2;
       }
 
@@ -62,4 +71,8 @@ $theme-color-3: #9026d0;
       }
     }
   }
+}
+
+.lista-curso {
+  position: absolute;
 }
