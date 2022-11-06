@@ -1,0 +1,16 @@
+div.aulas{
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border: 5px solid gray;
+    border-radius: 20px;
+    width: 25vw;
+    margin-top: 8vh;
+    height: 50vh;
+}
+div.aulas > nav > ul > li > a{
+    font-size: 1.5rem;
+}
+div.aulas > nav > ul > li > ul{
+    font-size: 1.5rem;
+}

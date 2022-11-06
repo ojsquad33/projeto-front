@@ -6,6 +6,7 @@ import Layout from "./pages/Layout";
 import Main from "./pages/Main";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
+import Aula from  "./pages/Aula";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Main />} />
           <Route path="home" element={<Home />} />
+          <Route path="aula" element={<Aula />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
