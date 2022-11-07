@@ -3,9 +3,10 @@
   background-color: #fff;
   width: 100vw;
   height: 100vh;
+  position: absolute;
+  top: 0;
 }
 .lista-curso .wrap-description {
-  margin-top: 15vh;
   width: 50vw;
   z-index: 2;
   gap: 7vh;

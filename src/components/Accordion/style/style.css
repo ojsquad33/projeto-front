@@ -43,4 +43,9 @@
 
 .accordion-content {
   padding: 1em 1.5em;
+}
+.accordion-content li {
+  font-size: 2.3vh;
+  line-height: 3vh;
+  list-style-type: decimal;
 }/*# sourceMappingURL=style.css.map */

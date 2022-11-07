@@ -12,7 +12,12 @@ const Accordion = ({ title, content }) => {
         {title}
       </div>
       <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
-        <div className="accordion-content">{content}</div>
+        <div className="accordion-content">
+          {content &&
+            content.map((aula, index) => {
+              return <li key={index}>{aula}</li>;
+            })}
+        </div>
       </div>
     </div>
   );

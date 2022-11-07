@@ -16,10 +16,6 @@ body {
   height: 100vh;
 }
 
-.hidden {
-  display: none;
-}
-
 @keyframes bounce {
   to {
     transform: translateY(4px);

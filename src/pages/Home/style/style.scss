@@ -9,10 +9,6 @@ $theme-color-3: #9026d0;
   align-items: $align_items;
 }
 
-header {
-  z-index: 2;
-}
-
 .page-home {
   @include display_flex(column, center, center);
   background-image: url("../../../assets/background-light.png");

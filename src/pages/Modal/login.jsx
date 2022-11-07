@@ -1,18 +1,22 @@
 import "./style/style.css";
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ModalLogin = ({
   id = "close",
   handleModalCadastroOpening,
   onClose = () => {},
 }) => {
+  const navigate = useNavigate();
   const handleOutsideClick = (e) => {
     if (e.target.id === id) onClose();
   };
   const handleOpenCadastro = () => {
     onClose();
     handleModalCadastroOpening();
+  };
+  const direcionarPagina = () => {
+    navigate("/home");
   };
   return (
     <div id={id} className="modal" onClick={handleOutsideClick}>
@@ -28,8 +32,8 @@ const ModalLogin = ({
           <div className="info">
             <input type="password" id="senha" placeholder="Senha" required />
           </div>
-          <button type="submit">
-            <Link to="/home">Entrar</Link>
+          <button type="submit" onClick={direcionarPagina}>
+            Entrar
           </button>
         </form>
         <p className="cadastro">

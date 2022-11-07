@@ -1,6 +1,5 @@
 import "./style/style.css";
 import Trilhas from "../../components/Trilhas";
-import Header from "../../components/Header";
 import ListaCurso from "../../components/ListaCurso";
 import { useState } from "react";
 import trilhas from "../../services/database";
@@ -10,7 +9,6 @@ function Home() {
   const [trilhaAtual, setTrilhaAtual] = useState(trilhas[0]);
   return (
     <div className="page-home">
-      <Header text="Trilhas Orange Evolution" />
       <h1 className="escolher-trilha">Escolha a sua Trilha</h1>
       <Trilhas
         setTrilhaAtual={setTrilhaAtual}

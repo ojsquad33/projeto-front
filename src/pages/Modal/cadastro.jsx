@@ -1,11 +1,18 @@
 import "./style/style.css";
 import Logo from "../../assets/logo.png";
 
-const ModalCadastro = ({ id = "close", onClose = () => {} }) => {
+const ModalCadastro = ({
+  id = "close",
+  handleModalLoginOpening,
+  onClose = () => {},
+}) => {
   const handleOutsideClick = (e) => {
     if (e.target.id === id) onClose();
   };
-
+  const handleOpenLogin = () => {
+    onClose();
+    handleModalLoginOpening();
+  };
   return (
     <div id={id} className="modal" onClick={handleOutsideClick}>
       <div className="modal-container">
@@ -31,7 +38,9 @@ const ModalCadastro = ({ id = "close", onClose = () => {} }) => {
               required
             />
           </div>
-          <button type="submit">Cadastrar</button>
+          <button type="submit" onClick={handleOpenLogin}>
+            Cadastrar
+          </button>
         </form>
       </div>
     </div>

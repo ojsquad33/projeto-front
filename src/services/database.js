@@ -15,7 +15,7 @@ const trilhas = [
         selected: false,
         modulos: [
           {
-            nome: "Javascript",
+            nome: "Geral",
             aulas: [
               "Lógica de Programação e Algoritmos",
               "Shell Script: Introdução e Como Automatizar Tarefas",
@@ -24,7 +24,14 @@ const trilhas = [
               "Introdução a Banco de Dados e Linguagem SQL",
             ],
           },
-          { nome: "Typescript" },
+          {
+            nome: "Typescript",
+            aulas: [
+              "Typescript Básico",
+              "Typescript Intermediário",
+              "Typescript Avançado",
+            ],
+          },
           { nome: "Python" },
           { nome: "C++" },
           { nome: "Java" },
@@ -62,43 +69,43 @@ const trilhas = [
       },
     ],
   },
-  {
-    page: 2,
-    content: [
-      {
-        id: 4,
-        trilha: "Soft Skills",
-        imagem: ImageFullStack,
-        descricao: "Trilha sobre Soft Skills!",
-        selected: false,
-        modulos: [
-          {
-            nome: "Trilha 1",
-            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4"],
-          },
-          { nome: "Trilha 2" },
-          { nome: "Trilha 3" },
-        ],
-      },
-      {
-        id: 5,
-        trilha: "PostgreSQL",
-        imagem: ImageUXUI,
-        descricao: "Trilha sobre Soft Skills!",
-        selected: false,
-        modulos: [
-          {
-            nome: "Trilha 1",
-            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5"],
-          },
-          { nome: "Trilha 2" },
-          { nome: "Trilha 3" },
-          { nome: "Trilha 4" },
-          { nome: "Trilha 5" },
-        ],
-      },
-    ],
-  },
+  // {
+  //   page: 2,
+  //   content: [
+  //     {
+  //       id: 4,
+  //       trilha: "Soft Skills",
+  //       imagem: ImageFullStack,
+  //       descricao: "Trilha sobre Soft Skills!",
+  //       selected: false,
+  //       modulos: [
+  //         {
+  //           nome: "Trilha 1",
+  //           aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4"],
+  //         },
+  //         { nome: "Trilha 2" },
+  //         { nome: "Trilha 3" },
+  //       ],
+  //     },
+  //     {
+  //       id: 5,
+  //       trilha: "Banco de Dados",
+  //       imagem: ImageUXUI,
+  //       descricao: "Trilha sobre Soft Skills!",
+  //       selected: false,
+  //       modulos: [
+  //         {
+  //           nome: "Trilha 1",
+  //           aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5"],
+  //         },
+  //         { nome: "Trilha 2" },
+  //         { nome: "Trilha 3" },
+  //         { nome: "Trilha 4" },
+  //         { nome: "Trilha 5" },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 export default trilhas;

@@ -61,26 +61,21 @@
 }
 .modal-container form button {
   all: unset;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  display: block;
   margin-top: 2vh;
   background-color: #0dbc9e;
   border-radius: 5px;
   width: 100%;
   height: 5.1vh;
+  text-decoration: none;
   text-align: center;
   font-size: 2.1vh;
-  transition: 1s ease;
-}
-.modal-container form button a {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
   color: #fff;
+  transition: 1s ease;
 }
 .modal-container form button:hover {
   -webkit-animation: change-color 2.5s ease infinite alternate;

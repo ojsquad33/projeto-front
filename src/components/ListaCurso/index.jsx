@@ -6,8 +6,6 @@ const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
   const fecharAulas = () => {
     setCliqueAtivo(false);
   };
-  const aux = trilhaAtual;
-
   return (
     <div className="lista-curso">
       <div className="wrap-description">
@@ -23,7 +21,7 @@ const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
         </h1>
         <p className="description">
           Se você chegou até aqui, é porque quer aprender mais sobre tecnologia,
-          especialmente sobre {aux.trilha}! <br />
+          especialmente sobre {trilhaAtual.trilha}! <br />
           <br />O Orange Evolution consiste em trilhas totalmente gratuitas para
           que você possa iniciar a sua carreira na tecnologia. Você terá acesso
           a vídeos, lives, artigos, apostilas e até cursos gratuitos, além
@@ -37,7 +35,7 @@ const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
         </p>
       </div>
       <div className="wrapper">
-        {aux.modulos.map((modulo, index) => (
+        {trilhaAtual.modulos.map((modulo, index) => (
           <Accordion key={index} title={modulo.nome} content={modulo.aulas} />
         ))}
       </div>

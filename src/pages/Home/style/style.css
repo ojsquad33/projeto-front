@@ -1,7 +1,3 @@
-header {
-  z-index: 2;
-}
-
 .page-home {
   display: flex;
   flex-direction: column;

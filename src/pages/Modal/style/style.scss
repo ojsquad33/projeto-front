@@ -64,24 +64,18 @@ $theme-color-3: #9026d0;
 
     button {
       all: unset;
+      @include display_flex(row, center, center);
       cursor: pointer;
-      display: block;
       margin-top: 2vh;
       background-color: $theme-color-1;
       border-radius: 5px;
       width: 100%;
       height: 5.1vh;
+      text-decoration: none;
       text-align: center;
       font-size: 2.1vh;
+      color: #fff;
       transition: 1s ease;
-
-      a {
-        @include display_flex(row, center, center);
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: #fff;
-      }
 
       &:hover {
         animation: change-color 2.5s ease infinite alternate;
