@@ -9,11 +9,10 @@ ul.topicos > li{
 ul.topicos > li:hover{
     border-radius: 20px;
     text-decoration: underline;
-    transition: 500ms;
 }
-#concluir{
+#subtopicos{
     margin-right: 10px;
 }
-#label-concluir{
+#label-subtopicos{
     cursor: pointer;
 }
