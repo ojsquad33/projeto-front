@@ -1,4 +1,4 @@
-import "./style/style.css";
+import "./style.scss";
 import Logo from "../../assets/logo.png";
 import Trilhas from "../../components/Trilhas";
 import ModalLogin from "../Modal/login";

@@ -27,11 +27,13 @@ h1 {
 
 .left-side {
   display: flex;
+  flex-grow: 2;
   gap: 2vh;
 }
 
 .right-side {
   display: flex;
+  text-align: end;
   gap: 2vh;
 }
 .right-side img {

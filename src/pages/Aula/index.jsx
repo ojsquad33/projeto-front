@@ -1,4 +1,4 @@
-import './style/style.css'
+import "./style.scss";
 
 function Aula() {
   return <h1>Hello World</h1>;

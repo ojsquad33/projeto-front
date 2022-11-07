@@ -22,7 +22,7 @@ $theme-color-3: #9026d0;
 .modal-container {
   @include display_flex(column, flex-start, center);
   background-color: #fff;
-  background-image: url("../../../assets/background-light.png");
+  background-image: url("../../assets/background-light.png");
   background-repeat: no-repeat;
   background-position: 0 25vh;
   width: 50vh;

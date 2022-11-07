@@ -1,4 +1,4 @@
-import "./style/style.css";
+import "./style.scss";
 import Trilhas from "../../components/Trilhas";
 import ListaCurso from "../../components/ListaCurso";
 import { useState } from "react";
