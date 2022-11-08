@@ -19,7 +19,7 @@ export default function MainRoutes() {
         <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
           <Route path="" element={<Home />} />
         </Route>
-        <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
+        <Route path="aula" element={<Header text="Trilhas Orange Evolution" />}>
           <Route path="" element={<Aula />} />
         </Route>
       </Route>

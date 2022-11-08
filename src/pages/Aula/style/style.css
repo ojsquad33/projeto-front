@@ -17,7 +17,6 @@ header{
 }
 article{
     display: flex;
-    margin-top: 12vh;
     height: 85vh;
     background-image: url("../../../assets/background-light.png");
     background-repeat: repeat-x;
