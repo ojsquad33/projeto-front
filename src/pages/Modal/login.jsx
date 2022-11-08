@@ -1,13 +1,16 @@
 import "./style.scss";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
+import AuthContext from "../../context/AuthProvider";
+import axios from "../../api/axios";
 
 const ModalLogin = ({
   id = "close",
   handleModalCadastroOpening,
   onClose = () => {},
 }) => {
+  const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
@@ -31,9 +34,20 @@ const ModalLogin = ({
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setUser("");
-    setPwd("");
-    setSuccess(true);
+    try {
+      const response = await axios.post(
+        "/auth",
+        JSON.stringify({ username: user, password: pwd }),
+        {
+          headers: { "Content-type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      setUser("");
+      setPwd("");
+      setSuccess(true);
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -72,21 +86,26 @@ const ModalLogin = ({
               required
             />
           </div>
-          <button type="submit" onClick={direcionarPagina}>
-            Entrar
-          </button>
+          <button>Entrar</button>
         </form>
         <p className="cadastro">
           Não tem uma conta?{" "}
           <strong onClick={handleOpenCadastro}>Cadastre-se</strong>
         </p>
-        <p
-          ref={errRef}
-          className={errMsg ? "errmsg" : "offscreen"}
-          aria-live="assertive"
-        >
-          {errMsg}
-        </p>
+        {success ? (
+          <section>
+            <h1>Success!</h1>
+            {setTimeout(direcionarPagina, 700)}
+          </section>
+        ) : (
+          <p
+            ref={errRef}
+            className={errMsg ? "show" : "hide"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
+        )}
       </div>
     </div>
   );
