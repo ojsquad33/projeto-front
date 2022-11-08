@@ -15,7 +15,7 @@ const trilhas = [
         selected: false,
         modulos: [
           {
-            nome: "Javascript",
+            nome: "Geral",
             aulas: [
               "Lógica de Programação e Algoritmos",
               "Shell Script: Introdução e Como Automatizar Tarefas",
@@ -24,7 +24,14 @@ const trilhas = [
               "Introdução a Banco de Dados e Linguagem SQL",
             ],
           },
-          { nome: "Typescript" },
+          {
+            nome: "Typescript",
+            aulas: [
+              "Typescript Básico",
+              "Typescript Intermediário",
+              "Typescript Avançado",
+            ],
+          },
           { nome: "Python" },
           { nome: "C++" },
           { nome: "Java" },
@@ -36,6 +43,15 @@ const trilhas = [
         imagem: ImageQA,
         descricao: "Trilha sobre UX/UI!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+          { nome: "Trilha 4" },
+        ],
       },
       {
         id: 3,
@@ -43,6 +59,13 @@ const trilhas = [
         imagem: ImageUXUI,
         descricao: "Trilha sobre QA!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2"],
+          },
+          { nome: "Trilha 2" },
+        ],
       },
     ],
   },
@@ -55,13 +78,31 @@ const trilhas = [
         imagem: ImageFullStack,
         descricao: "Trilha sobre Soft Skills!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+        ],
       },
       {
         id: 5,
-        trilha: "PostgreSQL",
+        trilha: "Banco de Dados",
         imagem: ImageUXUI,
         descricao: "Trilha sobre Soft Skills!",
         selected: false,
+        modulos: [
+          {
+            nome: "Trilha 1",
+            aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5"],
+          },
+          { nome: "Trilha 2" },
+          { nome: "Trilha 3" },
+          { nome: "Trilha 4" },
+          { nome: "Trilha 5" },
+        ],
       },
     ],
   },

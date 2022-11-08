@@ -11,7 +11,7 @@ $theme-color-3: #9026d0;
 
 .page-home {
   @include display_flex(column, center, center);
-  background-image: url("../../../assets/background-light.png");
+  background-image: url("../../assets/background-light.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,6 +25,7 @@ $theme-color-3: #9026d0;
 
   .trilhas {
     position: static;
+    cursor: pointer;
 
     .seta {
       filter: brightness(0);
@@ -74,5 +75,6 @@ $theme-color-3: #9026d0;
 }
 
 .lista-curso {
-  position: absolute;
+  z-index: 1;
+  position: fixed;
 }

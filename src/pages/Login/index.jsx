@@ -1,4 +1,4 @@
-import "./style/style.css";
+import "./style.scss";
 import Logo from "../../assets/logo.png";
 import Trilhas from "../../components/Trilhas";
 import ModalLogin from "../Modal/login";
@@ -6,7 +6,7 @@ import ModalCadastro from "../Modal/cadastro";
 import trilhas from "../../services/database";
 import { useState } from "react";
 
-function Main() {
+function Login() {
   const [modalLoginIsOpen, setModalLoginIsOpen] = useState(false);
   const [modalCadastroIsOpen, setModalCadastroIsOpen] = useState(false);
   const handleModalLoginOpening = () => {
@@ -35,6 +35,7 @@ function Main() {
       {modalCadastroIsOpen && (
         <ModalCadastro
           key={trilhas.id}
+          handleModalLoginOpening={handleModalLoginOpening}
           onClose={() => setModalCadastroIsOpen(false)}
         />
       )}
@@ -42,4 +43,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Login;

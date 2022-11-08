@@ -17,12 +17,23 @@ $theme-color-3: #9026d0;
   right: 0;
   bottom: 0;
   left: 0;
+
+  h1 {
+    display: flex;
+    padding: 2vh;
+    border-radius: 10px;
+    background-color: rgb(118, 221, 118);
+    color: green;
+    position: absolute;
+    bottom: -10vh;
+    left: 35%;
+  }
 }
 
 .modal-container {
   @include display_flex(column, flex-start, center);
   background-color: #fff;
-  background-image: url("../../../assets/background-light.png");
+  background-image: url("../../assets/background-light.png");
   background-repeat: no-repeat;
   background-position: 0 25vh;
   width: 50vh;
@@ -64,24 +75,18 @@ $theme-color-3: #9026d0;
 
     button {
       all: unset;
+      @include display_flex(row, center, center);
       cursor: pointer;
-      display: block;
       margin-top: 2vh;
       background-color: $theme-color-1;
       border-radius: 5px;
       width: 100%;
       height: 5.1vh;
+      text-decoration: none;
       text-align: center;
       font-size: 2.1vh;
+      color: #fff;
       transition: 1s ease;
-
-      a {
-        @include display_flex(row, center, center);
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: #fff;
-      }
 
       &:hover {
         animation: change-color 2.5s ease infinite alternate;
@@ -91,6 +96,22 @@ $theme-color-3: #9026d0;
         animation: bounce 0.1s ease-in;
       }
     }
+  }
+
+  .show {
+    display: flex;
+    width: 80%;
+    padding: 1vh;
+    font-size: 1.7vh;
+    background-color: rgb(240, 175, 175);
+    color: rgb(151, 26, 26);
+    border-radius: 10px;
+    position: absolute;
+    top: 1.5vh;
+  }
+
+  .hide {
+    display: none;
   }
 }
 

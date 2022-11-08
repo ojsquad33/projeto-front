@@ -5,7 +5,7 @@ import Anterior from "../../assets/prev.svg";
 import Card from "../Card";
 import { useState } from "react";
 
-const Trilhas = () => {
+const Trilhas = ({ setTrilhaAtual, setCliqueAtivo }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const length = trilhas.length;
 
@@ -18,23 +18,34 @@ const Trilhas = () => {
 
   return (
     <div className="trilhas">
-      <img
-        className="seta"
-        src={Anterior}
-        alt="Seta apontando para a esquerda"
-        onClick={manipularSetaEsquerda}
-      />
+      {length > 1 && (
+        <img
+          className="seta"
+          src={Anterior}
+          alt="Seta apontando para a esquerda"
+          onClick={manipularSetaEsquerda}
+        />
+      )}
       <div className="card-collection">
         {trilhas[currentPage].content.map((trilha, index) => {
-          return <Card key={index} trilha={trilha} />;
+          return (
+            <Card
+              key={index}
+              trilha={trilha}
+              setCliqueAtivo={setCliqueAtivo}
+              setTrilhaAtual={setTrilhaAtual}
+            />
+          );
         })}
       </div>
-      <img
-        className="seta"
-        src={Seguinte}
-        alt="Seta apontando para a direita"
-        onClick={manipularSetaDireita}
-      />
+      {length > 1 && (
+        <img
+          className="seta"
+          src={Seguinte}
+          alt="Seta apontando para a direita"
+          onClick={manipularSetaDireita}
+        />
+      )}
     </div>
   );
 };
