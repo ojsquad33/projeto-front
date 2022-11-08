@@ -1,6 +1,7 @@
 import "./style/style.css";
 import React, { useState } from "react";
 import BarraProgresso from "../BarraProgresso";
+import trilhas from "../../services/database";
 
 const Topicos = () => {
     const [count, setCount] = useState(0)
@@ -8,54 +9,25 @@ const Topicos = () => {
         <div className="topicos">
         <ul className="topicos">
             <BarraProgresso bgcolor={"lightgreen"} completed={count} />
-            <li><label id="label-subtopicos"><input type="checkbox" id="subtopicos" 
-            onClick={() => 
             {
-            const tamSubtopicos = document.querySelectorAll('#subtopicos')
-            var cresc = parseInt(100/(tamSubtopicos.length))
-            if (count < cresc){
-                setCount(count + cresc)
+                trilhas[0].content[0].modulos[0].aulas.map((aula, index) => {
+                    return(
+                        <li key={index}><label id="label-subtopicos"><input type="checkbox" id="subtopicos" 
+                        onClick={() => 
+                        {
+                        const tamSubtopicos = document.querySelectorAll('#subtopicos')
+                        var cresc = parseInt(100/(tamSubtopicos.length))
+                        if (count < 100){
+                            setCount(count + cresc)
+                        }
+                        else {
+                            setCount(count - cresc)
+                        }
+                        }}/> {aula}
+                        </label></li>
+                    )
+                })
             }
-            else{
-                setCount(count - cresc)
-            }
-            }}/>Introdução</label></li>
-            <li><label id="label-subtopicos"><input type="checkbox" id="subtopicos" 
-            onClick={() => 
-            {
-            const tamSubtopicos = document.querySelectorAll('#subtopicos')
-            var cresc = parseInt(100/(tamSubtopicos.length))
-            if (count < cresc){
-                setCount(count + cresc)
-            }
-            else{
-                setCount(count - cresc)
-            }
-            }}/>Introdução</label></li>
-            <li><label id="label-subtopicos"><input type="checkbox" id="subtopicos" 
-            onClick={() => 
-            {
-            const tamSubtopicos = document.querySelectorAll('#subtopicos')
-            var cresc = parseInt(100/(tamSubtopicos.length))
-            if (count < cresc){
-                setCount(count + cresc)
-            }
-            else{
-                setCount(count - cresc)
-            }
-            }}/>Introdução</label></li>
-            <li><label id="label-subtopicos"><input type="checkbox" id="subtopicos" 
-            onClick={() => 
-            {
-            const tamSubtopicos = document.querySelectorAll('#subtopicos')
-            var cresc = parseInt(100/(tamSubtopicos.length))
-            if (count < cresc){
-                setCount(count + cresc)
-            }
-            else{
-                setCount(count - cresc)
-            }
-            }}/>Introdução</label></li>
         </ul>
     </div>
     )

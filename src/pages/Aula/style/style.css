@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: auto;
     height: auto;
 }
@@ -18,64 +17,13 @@ header{
 }
 article{
     display: flex;
+    margin-top: 12vh;
+    height: 85vh;
     background-image: url("../../../assets/background-light.png");
     background-repeat: repeat-x;
     background-position-y: center;
-    align-content: center;
+    align-content: flex-start;
     justify-content: center;
     column-gap: 3vw;
     padding: 20px;
-}
-nav {
-	margin:0 auto;
-    width:100%;
-    height:auto;
-    display:inline-block;
-    margin-bottom: 10px;
-}
-
-nav ul {
-    margin:0;padding:0;
-    list-style-type:none;
-    display:inline-block;
-}
-
-nav ul li {
-	position:relative;
-	margin:0 20px 0 0;
-    display:inline-block;
-    background-color: white;
-}
-
-li > a:after { content: ' »'; }
-
-li > a:only-child:after { content: ''; }
-
-nav ul li a {
-	padding:20px;
-    display:inline-block;
-    text-decoration:none;
-}
-
-nav ul li a:hover {
-    opacity:0.5;
-    background-color: black;
-    color: white;
-    width: 100%;
-}
-
-nav ul li ul {
-    display:none;
-    position:absolute;
-    left:0;
-    float:left;
-    z-index: 20;
-}
-
-nav ul li ul li {
-	width:100%;
-}
-
-nav ul li:hover ul {
-    display:block;
 }

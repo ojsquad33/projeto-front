@@ -1,16 +1,18 @@
 import "./style/style.css";
 import Topicos from "../Topicos";
+import trilhas from "../../services/database";
 
 function ListaAulas(){
+    console.log()
     return(
         <div className="aulas">
         <nav>
           <ul>
-            <li><a href="#">Java</a>
+            <li><a href="#">{trilhas[0].content[0].modulos[0].nome}</a>
               <ul>
-                <li><a href="#">Python</a></li>
-                <li><a href="#">C++</a></li>
-                <li><a href="#">SQL</a></li>
+              {trilhas[0].content[0].modulos.map((modulo, index) => {
+                return <li key={index}><a href="#">{modulo.nome}</a></li>
+              })}
               </ul>
             </li>
           </ul>

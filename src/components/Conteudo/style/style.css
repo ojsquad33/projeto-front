@@ -5,12 +5,14 @@ div.conteudo{
     border-radius: 20px;
     margin-left: 10px;
     width: 50vw;
-    height: 80vh;
+    height: 100%;
     font-size: 1.5rem;
+    flex-grow: 2;
 }
 div.conteudo-url{
-    margin-top: 40px;
+    height: 100%;
+    width: 100%;
 }
-div.conteudo > nav > ul{
-    margin-top: -12px;
+iframe{
+    width: 100% !important;
 }

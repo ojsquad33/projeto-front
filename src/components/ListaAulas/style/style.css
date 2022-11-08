@@ -4,10 +4,63 @@ div.aulas{
     padding: 20px;
     border: 5px solid gray;
     border-radius: 20px;
-    width: 25vw;
-    margin-top: 120px;
-    height: 60vh;
+    flex-grow: 1;
+    /* margin-top: 120px; */
+    height: 100%;
     overflow-y: scroll;
+}
+nav {
+	margin:0 auto;
+    width:100%;
+    height:auto;
+    display:inline-block;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    margin:0;padding:0;
+    list-style-type:none;
+    display:inline-block;
+}
+
+nav ul li {
+	position:relative;
+	margin:0 20px 0 0;
+    display:inline-block;
+    background-color: white;
+}
+
+li > a:after { content: ' »'; }
+
+li > a:only-child:after { content: ''; }
+
+nav ul li a {
+	padding:20px;
+    display:inline-block;
+    text-decoration:none;
+}
+
+nav ul li a:hover {
+    opacity:0.5;
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+nav ul li ul {
+    display:none;
+    position:absolute;
+    left:0;
+    float:left;
+    z-index: 20;
+}
+
+nav ul li ul li {
+	width:100%;
+}
+
+nav ul li:hover ul {
+    display:block;
 }
 div.aulas::-webkit-scrollbar-track{
     border-radius: 0 20px 20px 0;

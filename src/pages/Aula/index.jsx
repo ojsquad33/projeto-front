@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 function Aula() {
   return (
     <div>
-      <Header />
+      <Header text="exemplo"/>
       <article>
             <Conteudo />
             <ListaAulas />
