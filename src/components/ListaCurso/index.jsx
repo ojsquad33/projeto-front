@@ -1,8 +1,13 @@
 import Accordion from "../Accordion";
 import Card from "../Card";
-import "./style/style.css";
+import "./style.scss";
 
-const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
+const ListaCurso = ({
+  trilhaAtual,
+  cliqueAtivo,
+  setCliqueAtivo,
+  paginaAtual,
+}) => {
   const fecharAulas = () => {
     setCliqueAtivo(false);
   };
@@ -36,7 +41,12 @@ const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
       </div>
       <div className="wrapper">
         {trilhaAtual.modulos.map((modulo, index) => (
-          <Accordion key={index} title={modulo.nome} content={modulo.aulas} />
+          <Accordion
+            key={index}
+            trilhaAtual={trilhaAtual}
+            modulo={modulo}
+            paginaAtual={paginaAtual}
+          />
         ))}
       </div>
     </div>

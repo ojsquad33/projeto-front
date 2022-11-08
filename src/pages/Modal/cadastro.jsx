@@ -30,19 +30,16 @@ const ModalCadastro = ({
       setErrMsg("Por favor, preencha todos os campos.");
     }
     try {
-      const response = await axios.post(
-        "/alunos/signup",
-        { nome, email, senha },
-        {
-          headers: { "Content-type": "application/json" },
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("/alunos/signup", {
+        nome,
+        email,
+        senha,
+      });
       setSuccess(true);
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response.");
-      } else if (err.response?.status === 403) {
+      } else if (err.response?.status === 409) {
         setErrMsg("This e-mail has already been registered.");
       } else {
         setErrMsg("Registration failed.");

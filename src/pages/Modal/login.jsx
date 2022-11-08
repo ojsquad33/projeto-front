@@ -18,7 +18,6 @@ const ModalLogin = ({
   const [pwd, setPwd] = useState("");
   const [matchPwd, setMatchPwd] = useState(false);
   const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -35,19 +34,28 @@ const ModalLogin = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "/auth",
-        JSON.stringify({ username: user, password: pwd }),
-        {
-          headers: { "Content-type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(JSON.stringify(response?.data));
+      const response = await axios.post("/auth", {
+        username: user,
+        password: pwd,
+      });
+      const accessToken = response?.data?.token; //alterar esse caminho
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
       setSuccess(true);
-    } catch (err) {}
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No server response.");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing username or password.");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Unauthorized.");
+      } else {
+        setErrMsg("Login failed.");
+      }
+      errRef.current.focus();
+    }
   };
 
   useEffect(() => {

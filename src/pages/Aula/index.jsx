@@ -1,14 +1,14 @@
-import './style/style.css';
-import Conteudo from '../../components/Conteudo';
-import ListaAulas from '../../components/ListaAulas';
+import "./style/style.css";
+import Conteudo from "../../components/Conteudo";
+import ListaAulas from "../../components/ListaAulas";
 
 function Aula() {
   return (
     <div>
       <article>
-            <Conteudo />
-            <ListaAulas />
-        </article>
+        <Conteudo />
+        <ListaAulas />
+      </article>
     </div>
   );
 }

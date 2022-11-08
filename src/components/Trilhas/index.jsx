@@ -1,11 +1,12 @@
-import "./style/style.css";
+import "./style.scss";
 import trilhas from "../../services/database";
 import Seguinte from "../../assets/next.svg";
 import Anterior from "../../assets/prev.svg";
 import Card from "../Card";
 import { useState } from "react";
+import { useEffect } from "react";
 
-const Trilhas = ({ setTrilhaAtual, setCliqueAtivo }) => {
+const Trilhas = ({ setTrilhaAtual, setCliqueAtivo, setPaginaAtual }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const length = trilhas.length;
 
@@ -16,6 +17,13 @@ const Trilhas = ({ setTrilhaAtual, setCliqueAtivo }) => {
     setCurrentPage(currentPage === length - 1 ? 0 : currentPage + 1);
   };
 
+  useEffect(
+    () => {
+      setPaginaAtual(currentPage);
+    },
+    [manipularSetaDireita],
+    [manipularSetaEsquerda]
+  );
   return (
     <div className="trilhas">
       {length > 1 && (

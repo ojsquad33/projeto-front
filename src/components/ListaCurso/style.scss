@@ -48,3 +48,22 @@
   top: 15vh;
   right: 15vh;
 }
+
+.wrapper {
+  scrollbar-width: auto;
+  scrollbar-color: #fff white;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: #8b8b8b;
+  border-radius: 8px;
+  border: 3px solid #fff;
+}

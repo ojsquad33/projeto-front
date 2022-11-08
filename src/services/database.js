@@ -15,6 +15,7 @@ const trilhas = [
         selected: false,
         modulos: [
           {
+            id: 1,
             nome: "Geral",
             aulas: [
               "Lógica de Programação e Algoritmos",
@@ -25,6 +26,7 @@ const trilhas = [
             ],
           },
           {
+            id: 2,
             nome: "Typescript",
             aulas: [
               "Typescript Básico",
@@ -32,9 +34,9 @@ const trilhas = [
               "Typescript Avançado",
             ],
           },
-          { nome: "Python" },
-          { nome: "C++" },
-          { nome: "Java" },
+          { id: 3, nome: "Python" },
+          { id: 4, nome: "C++" },
+          { id: 5, nome: "Java" },
         ],
       },
       {
@@ -45,12 +47,13 @@ const trilhas = [
         selected: false,
         modulos: [
           {
+            id: 1,
             nome: "Trilha 1",
             aulas: ["Aula 1", "Aula 2", "Aula 3"],
           },
-          { nome: "Trilha 2" },
-          { nome: "Trilha 3" },
-          { nome: "Trilha 4" },
+          { id: 2, nome: "Trilha 2" },
+          { id: 3, nome: "Trilha 3" },
+          { id: 4, nome: "Trilha 4" },
         ],
       },
       {
@@ -61,10 +64,11 @@ const trilhas = [
         selected: false,
         modulos: [
           {
+            id: 1,
             nome: "Trilha 1",
             aulas: ["Aula 1", "Aula 2"],
           },
-          { nome: "Trilha 2" },
+          { id: 2, nome: "Trilha 2" },
         ],
       },
     ],
@@ -80,11 +84,12 @@ const trilhas = [
         selected: false,
         modulos: [
           {
+            id: 1,
             nome: "Trilha 1",
             aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4"],
           },
-          { nome: "Trilha 2" },
-          { nome: "Trilha 3" },
+          { id: 2, nome: "Trilha 2" },
+          { id: 3, nome: "Trilha 3" },
         ],
       },
       {
@@ -95,13 +100,14 @@ const trilhas = [
         selected: false,
         modulos: [
           {
+            id: 1,
             nome: "Trilha 1",
             aulas: ["Aula 1", "Aula 2", "Aula 3", "Aula 4", "Aula 5"],
           },
-          { nome: "Trilha 2" },
-          { nome: "Trilha 3" },
-          { nome: "Trilha 4" },
-          { nome: "Trilha 5" },
+          { id: 2, nome: "Trilha 2" },
+          { id: 3, nome: "Trilha 3" },
+          { id: 4, nome: "Trilha 4" },
+          { id: 5, nome: "Trilha 5" },
         ],
       },
     ],
