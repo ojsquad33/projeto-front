@@ -3,14 +3,15 @@ import Logo2 from "../../assets/logo2.svg";
 import Logout from "../../assets/logout.svg";
 import usuarios from "../../services/database_usuarios.js";
 import { Link, Outlet, useParams } from "react-router-dom";
-import trilhas from "../../services/database";
+import cursos from "../../services/database_cursos";
+import trilhasSemPaginacao from "../../services/database_all";
 
 const Header = ({ text }) => {
-  let { pag, trilha } = useParams();
+  let { curso_id } = useParams();
+  let curso = cursos.find((curso) => curso.id === Number(curso_id));
   let title = !text
-    ? `Trilha: ${trilhas[pag - 1].content[trilha - (pag - 1) * 3 - 1].trilha}`
+    ? `Trilha: ${trilhasSemPaginacao[curso.trilha_id - 1].trilha}`
     : text;
-  console.log();
   return (
     <div className="header-pages">
       <header>

@@ -23,7 +23,6 @@ function Home() {
           trilhaAtual={trilhaAtual}
           cliqueAtivo={cliqueAtivo}
           setCliqueAtivo={setCliqueAtivo}
-          currentPage={currentPage}
         />
       )}
     </div>

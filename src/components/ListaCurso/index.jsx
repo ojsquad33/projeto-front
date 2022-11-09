@@ -2,12 +2,7 @@ import Accordion from "../Accordion";
 import Card from "../Card";
 import "./style.scss";
 
-const ListaCurso = ({
-  trilhaAtual,
-  cliqueAtivo,
-  setCliqueAtivo,
-  currentPage,
-}) => {
+const ListaCurso = ({ trilhaAtual, cliqueAtivo, setCliqueAtivo }) => {
   const fecharAulas = () => {
     setCliqueAtivo(false);
   };
@@ -41,12 +36,7 @@ const ListaCurso = ({
       </div>
       <div className="wrapper">
         {trilhaAtual.modulos.map((modulo, index) => (
-          <Accordion
-            key={index}
-            trilhaAtual={trilhaAtual}
-            modulo={modulo}
-            currentPage={currentPage}
-          />
+          <Accordion key={index} modulo={modulo} />
         ))}
       </div>
     </div>

@@ -15,14 +15,14 @@ export default function MainRoutes() {
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Route>
 
-      <Route element={<RequireAuth allowedRoles={["user", "admin"]} />}>
-        <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
-          <Route path="" element={<Home />} />
-        </Route>
-        <Route path="aula/:pag/:trilha/:curso" element={<Header text="" />}>
-          <Route path="" element={<Aula />} />
-        </Route>
+      {/* <Route element={<RequireAuth allowedRoles={["USER", "ADMIN"]} />}> */}
+      <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
+        <Route path="" element={<Home />} />
       </Route>
+      <Route path="aula/:curso_id" element={<Header text="" />}>
+        <Route path="" element={<Aula />} />
+      </Route>
+      {/* </Route> */}
 
       <Route path="*" element={<NotFound />} />
     </Routes>
