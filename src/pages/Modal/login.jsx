@@ -1,7 +1,7 @@
 import "./style.scss";
 import Logo from "../../assets/logo.png";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useRef, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
 
@@ -21,8 +21,6 @@ const ModalLogin = ({
 
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
-  const [matchPwd, setMatchPwd] = useState(false);
-  const [validMatch, setValidMatch] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
   const handleOutsideClick = (e) => {
@@ -59,11 +57,6 @@ const ModalLogin = ({
       errRef.current.focus();
     }
   };
-
-  useEffect(() => {
-    const match = pwd === matchPwd;
-    setValidMatch(match);
-  }, [pwd, matchPwd]);
 
   return (
     <div id={id} className="modal" onClick={handleOutsideClick}>
