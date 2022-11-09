@@ -6,7 +6,7 @@ const ListaCurso = ({
   trilhaAtual,
   cliqueAtivo,
   setCliqueAtivo,
-  paginaAtual,
+  currentPage,
 }) => {
   const fecharAulas = () => {
     setCliqueAtivo(false);
@@ -45,7 +45,7 @@ const ListaCurso = ({
             key={index}
             trilhaAtual={trilhaAtual}
             modulo={modulo}
-            paginaAtual={paginaAtual}
+            currentPage={currentPage}
           />
         ))}
       </div>

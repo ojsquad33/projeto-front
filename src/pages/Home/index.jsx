@@ -6,22 +6,24 @@ import trilhas from "../../services/database";
 
 function Home() {
   const [cliqueAtivo, setCliqueAtivo] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
   const [trilhaAtual, setTrilhaAtual] = useState(trilhas[0]);
-  const [paginaAtual, setPaginaAtual] = useState(0);
+
   return (
     <div className="page-home">
       <h1 className="escolher-trilha">Escolha a sua Trilha</h1>
       <Trilhas
         setTrilhaAtual={setTrilhaAtual}
         setCliqueAtivo={setCliqueAtivo}
-        setPaginaAtual={setPaginaAtual}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
       {cliqueAtivo && (
         <ListaCurso
           trilhaAtual={trilhaAtual}
           cliqueAtivo={cliqueAtivo}
           setCliqueAtivo={setCliqueAtivo}
-          paginaAtual={paginaAtual}
+          currentPage={currentPage}
         />
       )}
     </div>

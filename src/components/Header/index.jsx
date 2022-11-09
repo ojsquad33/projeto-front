@@ -7,7 +7,10 @@ import trilhas from "../../services/database";
 
 const Header = ({ text }) => {
   let { pag, trilha } = useParams();
-  let title = !text ? trilhas[pag - 1].content[trilha - 1].trilha : text;
+  let title = !text
+    ? `Trilha: ${trilhas[pag - 1].content[trilha - (pag - 1) * 3 - 1].trilha}`
+    : text;
+  console.log();
   return (
     <div className="header-pages">
       <header>

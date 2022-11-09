@@ -3,7 +3,6 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Aula from "./pages/Aula";
 import Header from "./components/Header";
-import trilhas from "./services/database";
 
 function ProtectedRoutes({ redirectTo }) {
   const estaAutenticado = true;

@@ -4,10 +4,13 @@ import Seguinte from "../../assets/next.svg";
 import Anterior from "../../assets/prev.svg";
 import Card from "../Card";
 import { useState } from "react";
-import { useEffect } from "react";
 
-const Trilhas = ({ setTrilhaAtual, setCliqueAtivo, setPaginaAtual }) => {
-  const [currentPage, setCurrentPage] = useState(0);
+const Trilhas = ({
+  setTrilhaAtual,
+  setCliqueAtivo,
+  currentPage,
+  setCurrentPage,
+}) => {
   const length = trilhas.length;
 
   const manipularSetaEsquerda = () => {
@@ -16,14 +19,6 @@ const Trilhas = ({ setTrilhaAtual, setCliqueAtivo, setPaginaAtual }) => {
   const manipularSetaDireita = () => {
     setCurrentPage(currentPage === length - 1 ? 0 : currentPage + 1);
   };
-
-  useEffect(
-    () => {
-      setPaginaAtual(currentPage);
-    },
-    [manipularSetaDireita],
-    [manipularSetaEsquerda]
-  );
   return (
     <div className="trilhas">
       {length > 1 && (

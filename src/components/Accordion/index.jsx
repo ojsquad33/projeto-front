@@ -2,7 +2,7 @@ import "./style.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Accordion = ({ trilhaAtual, modulo, paginaAtual }) => {
+const Accordion = ({ trilhaAtual, modulo, currentPage }) => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="accordion-wrapper">
@@ -13,7 +13,7 @@ const Accordion = ({ trilhaAtual, modulo, paginaAtual }) => {
         <div className="trilha-info">
           <Link
             to={{
-              pathname: `/aula/${paginaAtual + 1}/${trilhaAtual.id}/${
+              pathname: `/aula/${currentPage + 1}/${trilhaAtual.id}/${
                 modulo.id
               }`,
             }}
