@@ -61,7 +61,6 @@ div.aulas::-webkit-scrollbar{
     width: 6px;
 }
 div.aulas::-webkit-scrollbar-thumb{
-    /* border-radius: 20px; */
     background-color: gray;
 }
 div.aulas > nav > ul > li > a{
