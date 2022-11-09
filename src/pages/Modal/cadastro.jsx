@@ -10,7 +10,7 @@ const ModalCadastro = ({
 }) => {
   const errRef = useRef();
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [matchSenha, setMatchSenha] = useState("");
   const [validMatch, setValidMatch] = useState(false);
@@ -26,13 +26,13 @@ const ModalCadastro = ({
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!nome || !email || !senha) {
+    if (!nome || !username || !senha) {
       setErrMsg("Por favor, preencha todos os campos.");
     }
     try {
       const response = await axios.post("/alunos/signup", {
         nome,
-        email,
+        username,
         senha,
       });
       setSuccess(true);
@@ -55,7 +55,7 @@ const ModalCadastro = ({
 
   useEffect(() => {
     setErrMsg("");
-  }, [email, senha, matchSenha]);
+  }, [username, senha, matchSenha]);
 
   return (
     <div id={id} className="modal" onClick={handleOutsideClick}>
@@ -109,7 +109,9 @@ const ModalCadastro = ({
             A senha deve ser a mesma nos dois campos.
           </p>
           <button
-            disabled={!nome || !email || !senha || !validMatch ? true : false}
+            disabled={
+              !nome || !username || !senha || !validMatch ? true : false
+            }
           >
             Cadastrar
           </button>

@@ -9,6 +9,9 @@ import { useState } from "react";
 function Login() {
   const [modalLoginIsOpen, setModalLoginIsOpen] = useState(false);
   const [modalCadastroIsOpen, setModalCadastroIsOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [cliqueAtivo, setCliqueAtivo] = useState(false);
+  const [trilhaAtual, setTrilhaAtual] = useState(trilhas[0]);
   const handleModalLoginOpening = () => {
     setModalLoginIsOpen(true);
   };
@@ -24,7 +27,12 @@ function Login() {
         </button>
         <p onClick={handleModalCadastroOpening}>Criar uma conta</p>
       </div>
-      <Trilhas />
+      <Trilhas
+        setTrilhaAtual={setTrilhaAtual}
+        setCliqueAtivo={setCliqueAtivo}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       {modalLoginIsOpen && (
         <ModalLogin
           key={trilhas.id}

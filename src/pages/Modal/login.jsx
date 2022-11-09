@@ -1,8 +1,8 @@
 import "./style.scss";
 import Logo from "../../assets/logo.png";
-import { useNavigate } from "react-router-dom";
-import { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../../context/AuthProvider";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
 
 const ModalLogin = ({
@@ -10,16 +10,20 @@ const ModalLogin = ({
   handleModalCadastroOpening,
   onClose = () => {},
 }) => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuth();
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const userRef = useRef();
   const errRef = useRef();
+
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [matchPwd, setMatchPwd] = useState(false);
   const [validMatch, setValidMatch] = useState(false);
   const [errMsg, setErrMsg] = useState("");
-  const [success, setSuccess] = useState(false);
 
   const handleOutsideClick = (e) => {
     if (e.target.id === id) onClose();
@@ -28,22 +32,20 @@ const ModalLogin = ({
     onClose();
     handleModalCadastroOpening();
   };
-  const direcionarPagina = () => {
-    navigate("/home");
-  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("/auth", {
         username: user,
-        password: pwd,
+        senha: pwd,
       });
       const accessToken = response?.data?.token; //alterar esse caminho
       const roles = response?.data?.roles;
       setAuth({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
-      setSuccess(true);
+      navigate(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response.");
@@ -100,20 +102,13 @@ const ModalLogin = ({
           Não tem uma conta?{" "}
           <strong onClick={handleOpenCadastro}>Cadastre-se</strong>
         </p>
-        {success ? (
-          <section>
-            <h1>Success!</h1>
-            {setTimeout(direcionarPagina, 700)}
-          </section>
-        ) : (
-          <p
-            ref={errRef}
-            className={errMsg ? "show" : "hide"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-        )}
+        <p
+          ref={errRef}
+          className={errMsg ? "show" : "hide"}
+          aria-live="assertive"
+        >
+          {errMsg}
+        </p>
       </div>
     </div>
   );

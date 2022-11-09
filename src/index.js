@@ -5,14 +5,13 @@ import { BrowserRouter } from "react-router-dom";
 import MainRoutes from "./routes";
 import { AuthProvider } from "./context/AuthProvider";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <MainRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

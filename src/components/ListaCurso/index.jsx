@@ -22,7 +22,7 @@ const ListaCurso = ({
           trilhaAtual={trilhaAtual}
         />
         <h1 className="close" onClick={fecharAulas}>
-          fechar X
+          Fechar X
         </h1>
         <p className="description">
           Se você chegou até aqui, é porque quer aprender mais sobre tecnologia,

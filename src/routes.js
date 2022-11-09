@@ -1,21 +1,21 @@
-import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Aula from "./pages/Aula";
 import Header from "./components/Header";
-
-function ProtectedRoutes({ redirectTo }) {
-  const estaAutenticado = true;
-  return estaAutenticado ? <Outlet /> : <Navigate to={redirectTo} />;
-}
+import RequireAuth from "./components/RequireAuth";
+import Unauthorized from "./pages/Unauthorized";
+import NotFound from "./pages/NotFound";
 
 export default function MainRoutes() {
   return (
     <Routes>
       <Route path="/">
         <Route path="/" element={<Login />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
       </Route>
-      <Route element={<ProtectedRoutes redirectTo={"/"} />}>
+
+      <Route element={<RequireAuth allowedRoles={["user", "admin"]} />}>
         <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
           <Route path="" element={<Home />} />
         </Route>
@@ -23,7 +23,8 @@ export default function MainRoutes() {
           <Route path="" element={<Aula />} />
         </Route>
       </Route>
-      <Route path="*" element={<h1>404 - Not found</h1>} />
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

@@ -3,7 +3,6 @@ import trilhas from "../../services/database";
 import Seguinte from "../../assets/next.svg";
 import Anterior from "../../assets/prev.svg";
 import Card from "../Card";
-import { useState } from "react";
 
 const Trilhas = ({
   setTrilhaAtual,
