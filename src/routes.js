@@ -24,7 +24,9 @@ export default function MainRoutes() {
         <Route path="" element={<Aula />} />
       </Route>
       {/* </Route> */}
-      <Route path="admin" element={<Admin />}/>
+      <Route path="home" element={<Header text="Configurações" />}>
+        <Route path="admin" element={<Admin />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

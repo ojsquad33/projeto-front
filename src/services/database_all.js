@@ -94,7 +94,7 @@ const trilhasSemPaginacao = [
     id: 5,
     trilha: "Banco de Dados",
     imagem: ImageUXUI,
-    descricao: "Trilha sobre Soft Skills!",
+    descricao: "Trilha sobre Banco de Dados!",
     selected: false,
     modulos: [
       {

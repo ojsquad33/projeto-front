@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 const Topicos = () => {
     const [count, setCount] = useState(0)
-    const [variavel, setVariavel] = useState(0)
     let { curso_id } = useParams()
     let curso = cursos.find((curso) => curso.id === Number(curso_id))
     return(
