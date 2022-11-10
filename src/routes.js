@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import RequireAuth from "./components/RequireAuth";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
 
 export default function MainRoutes() {
   return (
@@ -23,7 +24,7 @@ export default function MainRoutes() {
         <Route path="" element={<Aula />} />
       </Route>
       {/* </Route> */}
-
+      <Route path="admin" element={<Admin />}/>
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
