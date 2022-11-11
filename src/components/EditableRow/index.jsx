@@ -5,13 +5,15 @@ const EditableRow = ({
   handleEditFormChange,
   handleCancelClick,
 }) => {
+  var coluna1 = document.getElementById("coluna1").innerHTML;
+  var coluna2 = document.getElementById("coluna2").innerHTML;
   return (
     <tr>
       <td>
         <input
           type="text"
           required="required"
-          placeholder="Digite um id..."
+          placeholder="ID"
           name="id"
           value={editFormData.id}
           onChange={handleEditFormChange}
@@ -21,9 +23,9 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Digite um título..."
-          name="titulo"
-          value={editFormData.titulo}
+          placeholder={coluna1}
+          name="trilha"
+          value={editFormData.trilha}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -31,7 +33,7 @@ const EditableRow = ({
         <input
           type="text"
           required="required"
-          placeholder="Digite uma descricao..."
+          placeholder={coluna2}
           name="descricao"
           value={editFormData.descricao}
           onChange={handleEditFormChange}

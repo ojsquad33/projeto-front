@@ -1,9 +1,11 @@
 .conteudo-admin{
-    height: 90vh;
+    position: absolute;
+    left: 300px;
+    width: auto;
 }
 .app-container{
     padding: 20px;
-    width: 100%;
+    width: auto;
 }
 .add{
     margin-bottom: 10px;
@@ -17,8 +19,24 @@ button{
     padding: 10px;
     width: 100%;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 input{
     padding: 10px;
     margin-bottom: 10px;
+}
+nav.side-bar {
+    width: 200px;
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    position: absolute;
+}
+ul.opcoes > li:hover{
+    width: 100%;
+}
+ul.opcoes > li > a:hover{
+    background-color: white;
+    color: black;
+    text-decoration: underline;
 }

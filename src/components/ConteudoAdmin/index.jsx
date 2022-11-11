@@ -1,5 +1,7 @@
 import "./style/style.css";
 import trilhasSemPaginacao from "../../services/database_all";
+import cursos from "../../services/database_cursos";
+import usuarios from "../../services/database_usuarios";
 import React, { useState } from "react";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
@@ -8,12 +10,14 @@ const ConteudoAdmin = () => {
   const [trilha, setTrilhas] = useState(0);
 
   const [addFormData, setAddFormData] = useState({
-    titulo: "",
+    id: "",
+    trilha: "",
     descricao: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    titulo: "",
+    id: "",
+    trilha: "",
     descricao: "",
   });
 
@@ -47,8 +51,8 @@ const ConteudoAdmin = () => {
     event.preventDefault();
 
     const newTrilha = {
-      id: "0",
-      titulo: addFormData.titulo, 
+      id: "",
+      trilha: addFormData.trilha, 
       descricao: addFormData.descricao,
     };
 
@@ -60,8 +64,8 @@ const ConteudoAdmin = () => {
     event.preventDefault();
 
     const editedTrilha = {
-      id: editTrilhaId, 
-      titulo: editFormData.titulo,
+      id: editTrilhaId.id, 
+      trilha: editFormData.trilha,
       descricao: editFormData.descricao,
     };
 
@@ -74,11 +78,12 @@ const ConteudoAdmin = () => {
   };
 
   const handleEditClick = (event, trilha) => {
-    event.preventDefault(); // ???
+    event.preventDefault();
 
     setEditTrilhaId(trilha.id);
     const formValues = {
-      titulo: trilha.titulo,
+      id: trilha.id,
+      trilha: trilha.trilha,
       descricao: trilha.descricao,
     };
     setEditFormData(formValues);
@@ -95,58 +100,94 @@ const ConteudoAdmin = () => {
     setTrilhas(newTrilhas);
   };
 
+  const [opcao, setOpcao] = useState("Trilhas")
+  const [dados, setDados] = useState(trilhasSemPaginacao)
+  const [coluna1, setColuna1] = useState("Trilha")
+  const [coluna2, setColuna2] = useState("Descrição")
+
   return (
     <div className="app-container">
-      <form onSubmit={handleEditFormSubmit}>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Trilha</th>
-              <th>Descrição</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {trilhasSemPaginacao.map((trilha) => (
-              <>
-                {editTrilhaId === trilha.id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRow
-                    trilha={trilha}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </>
-            ))}
-          </tbody>
-        </table>
-      </form>
-
-      <h2 className="add">Adicione uma trilha</h2>
-      <form onSubmit={handleAddFormSubmit}>
-        <input
-          type="text"
-          name="titulo"
-          required="required"
-          placeholder="Digite o título..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="descricao"
-          required="required"
-          placeholder="Digite uma descrição..."
-          onChange={handleAddFormChange}
-        />
-        <button className="btn-add" type="submit">Adicionar</button>
-      </form>
+      <nav className="side-bar">
+        <ul className="opcoes">
+            <li><a id="trilha" href="#" onClick={() => {
+                setOpcao(document.getElementById("trilha").innerHTML);
+                setDados(trilhasSemPaginacao);
+                setColuna1("Trilha");
+                setColuna2("Descrição");
+            }
+            }>Trilhas</a></li>
+            <li><a id="cursos" href="#" onClick={() => {
+                setOpcao(document.getElementById("cursos").innerHTML);
+                setDados(cursos);
+                setColuna1("Nome");
+                setColuna2("Aulas");
+            }
+            }>Cursos</a></li>
+            <li><a id="aulas" href="#" onClick={() => {
+                setOpcao(document.getElementById("aulas").innerHTML);
+            }
+            }>Aulas</a></li>
+            <li><a id="usuarios" href="#" onClick={() => {
+                setOpcao(document.getElementById("usuarios").innerHTML);
+                setDados(usuarios);
+                setColuna1("Nome");
+                setColuna2("E-mail");
+            }
+            }>Usuários</a></li>
+        </ul>
+      </nav> 
+      <nav className="conteudo-admin">
+        <form onSubmit={handleEditFormSubmit}>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th id="coluna1">{coluna1}</th>
+                <th id="coluna2">{coluna2}</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dados.map((trilha) => (
+                <>
+                  {editTrilhaId === trilha.id ? (
+                    <EditableRow
+                      editFormData={editFormData}
+                      handleEditFormChange={handleEditFormChange}
+                      handleCancelClick={handleCancelClick}
+                    />
+                  ) : (
+                    <ReadOnlyRow
+                      opcao = {opcao}
+                      trilha={trilha}
+                      handleEditClick={handleEditClick}
+                      handleDeleteClick={handleDeleteClick}
+                    />
+                  )}
+                </>
+              ))}
+            </tbody>
+          </table>
+        </form>
+        <h2 className="add">Adicionar {opcao}</h2>
+        <form onSubmit={handleAddFormSubmit}>
+          <input
+            type="text"
+            name="trilha"
+            required="required"
+            placeholder={coluna1}
+            onChange={handleAddFormChange}
+          />
+          <input
+            type="text"
+            name="descricao"
+            required="required"
+            placeholder={coluna2}
+            onChange={handleAddFormChange}
+          />
+          <button className="btn-add" type="submit">Adicionar</button>
+        </form>
+      </nav>
     </div>
   );
 };
