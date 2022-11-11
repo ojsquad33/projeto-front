@@ -1,12 +1,14 @@
-import "./style/style.css";
+import "./style.css";
 
-function Conteudo(){
-    return(
-        <div className="conteudo">
-          <div className="conteudo-url">
-            <iframe className="conteudo" src="https://www.youtube.com/embed/oPmhE_EmLjk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-    )
+function Conteudo() {
+  return (
+    <iframe
+      className="conteudo-aula"
+      src="https://www.youtube.com/embed/oPmhE_EmLjk"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  );
 }
-export default Conteudo
+export default Conteudo;

@@ -2,7 +2,7 @@ import "./style.scss";
 import Logo2 from "../../assets/logo2.svg";
 import Logout from "../../assets/logout.svg";
 import usuarios from "../../services/database_usuarios.js";
-import { Link, Outlet, useParams, useNavigate } from "react-router-dom";
+import { Outlet, useParams, useNavigate } from "react-router-dom";
 import cursos from "../../services/database_cursos";
 import trilhasSemPaginacao from "../../services/database_all";
 import useLogout from "../../hooks/useLogout";

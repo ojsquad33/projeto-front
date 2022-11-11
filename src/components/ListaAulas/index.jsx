@@ -1,24 +1,40 @@
-import "./style/style.css";
+import "./style.css";
 import Topicos from "../Topicos";
-import trilhas from "../../services/database";
+import cursos from "../../services/database_cursos";
+import { Link, useParams } from "react-router-dom";
 
-function ListaAulas(){
-    console.log()
-    return(
-        <div className="aulas">
-        <nav>
-          <ul>
-            <li><a href="#">{trilhas[0].content[0].modulos[0].nome}</a>
-              <ul>
-              {trilhas[0].content[0].modulos.map((modulo, index) => {
-                return <li key={index}><a href="#">{modulo.nome}</a></li>
+function ListaAulas() {
+  let { curso_id } = useParams();
+  let curso = cursos.find((curso) => curso.id === Number(curso_id));
+  return (
+    <div className="aulas">
+      <nav>
+        <ul>
+          <li>
+            <a className="aula-selecionada" href="#">
+              {cursos[curso.id - 1].nome}
+            </a>
+            <ul>
+              {cursos.map((modulo, index) => {
+                var trilha = cursos[curso.id - 1].trilha_id;
+                if (modulo.trilha_id === trilha && modulo.id !== curso.id) {
+                  return (
+                    <li key={index}>
+                      <a href={index + 1}>{modulo.nome}</a>
+                    </li>
+                  );
+                }
               })}
-              </ul>
-            </li>
-          </ul>
-        </nav>
-          <Topicos />
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <Topicos />
+      <Link to="/home" className="go-back">
+        Voltar para o menu de trilhas →
+      </Link>
     </div>
-    )
+  );
 }
-export default ListaAulas
+export default ListaAulas;

@@ -1,0 +1,74 @@
+.topicos {
+  height: 100%;
+}
+
+.topicos ul {
+  padding: 20px;
+  list-style: none;
+}
+.topicos ul > li {
+  margin-bottom: 30px;
+  font-size: 2.5vh;
+}
+
+#subtopicos {
+  margin-right: 10px;
+}
+#label-subtopicos {
+  cursor: pointer;
+}
+
+#label-subtopicos {
+  display: block;
+  position: relative;
+  padding-left: 6vh;
+}
+
+#label-subtopicos input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4vh;
+  width: 4vh;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* Adicionar uma cor de fundo cinza ao passar o mouse */
+#label-subtopicos:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* Quando o checkbox é clicado, adicionar um fundo rosa */
+#label-subtopicos input:checked ~ .checkmark {
+  background-color: #ee41a8;
+}
+
+/* Criar o ícone de check, escondido quando não estiver selecionado */
+#label-subtopicos .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 1.2vh;
+  top: 0.7vh;
+  width: 1vh;
+  height: 1.7vh;
+  border: solid white;
+  border-width: 0 0.4vh 0.4vh 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Exibir o ícone quando selecionado */
+#label-subtopicos input:checked ~ .checkmark:after {
+  display: block;
+}

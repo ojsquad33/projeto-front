@@ -3,10 +3,11 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Aula from "./pages/Aula";
 import Header from "./components/Header";
-import RequireAuth from "./components/RequireAuth";
+// import RequireAuth from "./components/RequireAuth";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
 import Persistlogin from "./components/PersistLogin";
+import Admin from "./pages/Admin";
 
 export default function MainRoutes() {
   return (
@@ -25,8 +26,12 @@ export default function MainRoutes() {
           <Route path="" element={<Aula />} />
         </Route>
         {/* </Route> */}
+        {/* <Route element={<RequireAuth allowedRoles={["USER", "ADMIN"]} />}> */}
+        <Route path="home" element={<Header text="Configurações" />}>
+          <Route path="admin" element={<Admin />} />
+        </Route>
+        {/* </Route> */}
       </Route>
-
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
