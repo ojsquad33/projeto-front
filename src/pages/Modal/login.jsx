@@ -35,15 +35,15 @@ const ModalLogin = ({
     e.preventDefault();
     try {
       const response = await axios.post(
-        "/signin",
+        "/usuarios/auth",
         {
           username: user,
           senha: pwd,
-        },
-        {
-          headers: { "Content-type": "application/json" },
-          withCredentials: true,
         }
+        // {
+        //   headers: { "Content-type": "application/json" },
+        //   withCredentials: true,
+        // }
       );
       const accessToken = response?.data?.token; //alterar esse caminho
       const roles = response?.data?.roles;
@@ -75,9 +75,9 @@ const ModalLogin = ({
         <form onSubmit={handleSubmit}>
           <div className="info">
             <input
-              type="email"
-              id="email"
-              placeholder="E-mail"
+              type="text"
+              id="username"
+              placeholder="Username"
               ref={userRef}
               autoComplete="off"
               onChange={(e) => setUser(e.target.value)}
