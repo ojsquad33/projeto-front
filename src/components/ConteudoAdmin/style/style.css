@@ -1,22 +1,36 @@
 .conteudo-admin{
     position: absolute;
     left: 200px;
-    width: auto;
+    width: 60vw;
+    font-size: 1.3rem;
+}
+.tabela{
+    text-align: center;
+    padding: 10px;
+    border-collapse: collapse;
+}
+.tabela-cabecalho{
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+thead.tabela-cabecalho > tr > th{
+    padding: 10px;
 }
 .app-container{
     padding: 20px;
     width: auto;
 }
 .add{
+    margin-top: 50px;
     margin-bottom: 10px;
 }
 .btn-add{
-    width: 200px;
-    height: 39px;
+    height: 4vh;
 }
 input{
-    padding: 10px;
+    height: 4vh;
     margin-bottom: 10px;
+    display: block;
 }
 nav.side-bar {
     width: 180px;

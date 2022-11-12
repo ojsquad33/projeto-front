@@ -5,18 +5,17 @@ import usuarios from "../../services/database_usuarios";
 import React, { useState } from "react";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
+import Formulario from "../Formulario";
 
 const ConteudoAdmin = () => {
   const [trilha, setTrilhas] = useState(0);
 
   const [addFormData, setAddFormData] = useState({
-    id: "",
     trilha: "",
     descricao: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    id: "",
     trilha: "",
     descricao: "",
     nome: "",
@@ -54,7 +53,6 @@ const ConteudoAdmin = () => {
     event.preventDefault();
 
     const newTrilha = {
-      id: "",
       trilha: addFormData.trilha, 
       descricao: addFormData.descricao,
     };
@@ -67,7 +65,6 @@ const ConteudoAdmin = () => {
     event.preventDefault();
 
     const editedTrilha = {
-      id: editTrilhaId.id, 
       trilha: editFormData.trilha,
       descricao: editFormData.descricao,
       nome: editFormData.nome,
@@ -88,7 +85,6 @@ const ConteudoAdmin = () => {
 
     setEditTrilhaId(trilha.id);
     const formValues = {
-      id: trilha.id,
       trilha: trilha.trilha,
       descricao: trilha.descricao,
       nome: trilha.nome,
@@ -113,6 +109,9 @@ const ConteudoAdmin = () => {
   const [dados, setDados] = useState(trilhasSemPaginacao)
   const [coluna1, setColuna1] = useState("Trilha")
   const [coluna2, setColuna2] = useState("Descrição")
+  const [coluna3, setColuna3] = useState("")
+  const [coluna4, setColuna4] = useState("")
+  const [coluna5, setColuna5] = useState("")
 
   return (
     <div className="app-container">
@@ -122,21 +121,30 @@ const ConteudoAdmin = () => {
                 setOpcao(document.getElementById("trilha").innerHTML);
                 setDados(trilhasSemPaginacao);
                 setColuna1("Trilha");
-                setColuna2("Descrição");
+                setColuna2("URL-Imagem");
+                setColuna3("Descrição");
+                setColuna4("");
+                setColuna5("");
             }
             }>Trilhas</a></li>
             <li><a id="cursos" href="#" onClick={() => {
                 setOpcao(document.getElementById("cursos").innerHTML);
                 setDados(cursos);
                 setColuna1("Nome");
-                setColuna2("Aulas");
+                setColuna2("Descrição");
+                setColuna3("");
+                setColuna4("");
+                setColuna5("");
             }
             }>Cursos</a></li>
             <li><a id="aulas" href="#" onClick={() => {
                 setOpcao(document.getElementById("aulas").innerHTML);
                 setDados(cursos);
-                setColuna1("Nome");
-                setColuna2("Aulas");
+                setColuna1("Título");
+                setColuna2("Descrição");
+                setColuna3("Professor");
+                setColuna4("URL");
+                setColuna5("Tipo");
             }
             }>Aulas</a></li>
             <li><a id="usuarios" href="#" onClick={() => {
@@ -144,19 +152,24 @@ const ConteudoAdmin = () => {
                 setDados(usuarios);
                 setColuna1("Nome");
                 setColuna2("E-mail");
+                setColuna3("");
+                setColuna4("");
+                setColuna5("");
             }
             }>Usuários</a></li>
         </ul>
       </nav> 
       <nav className="conteudo-admin">
         <form onSubmit={handleEditFormSubmit}>
-          <table>
-            <thead>
+          <table className="tabela">
+            <thead className="tabela-cabecalho">
               <tr>
-                <th>ID</th>
                 <th id="coluna1">{coluna1}</th>
                 <th id="coluna2">{coluna2}</th>
-                <th>Ações</th>
+                <th id="coluna3">{coluna3}</th>
+                <th id="coluna4">{coluna4}</th>
+                <th id="coluna5">{coluna5}</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -183,23 +196,16 @@ const ConteudoAdmin = () => {
           </table>
         </form>
         <h2 id="tipo" className="add">Adicionar {opcao}</h2>
-        <form onSubmit={handleAddFormSubmit}>
-          <input
-            type="text"
-            name="trilha"
-            required="required"
-            placeholder={coluna1}
-            onChange={handleAddFormChange}
-          />
-          <input
-            type="text"
-            name="descricao"
-            required="required"
-            placeholder={coluna2}
-            onChange={handleAddFormChange}
-          />
-          <button className="btn-add" type="submit">Adicionar</button>
-        </form>
+        <Formulario 
+        opcao={opcao}
+        coluna1={coluna1}
+        coluna2={coluna2}
+        coluna3={coluna3}
+        coluna4={coluna4}
+        coluna5={coluna5}
+        handleAddFormSubmit={handleAddFormSubmit}
+        handleAddFormChange={handleAddFormChange}
+        />
       </nav>
     </div>
   );

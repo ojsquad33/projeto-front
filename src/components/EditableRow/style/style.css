@@ -7,6 +7,9 @@
     border: white;
     cursor: pointer;
 }
+.salvar:hover{
+    filter: opacity(50%);
+}
 .cancelar{
     background-image: url("/src/assets/close-button.svg");
     background-repeat: no-repeat;
@@ -15,4 +18,7 @@
     background-color: white;
     border: white;
     cursor: pointer;
+}
+.cancelar:hover{
+    filter: opacity(50%);
 }

@@ -5,11 +5,11 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
   {
     if (opcao == "Trilhas"){
       return (
-        <tr>
-          <td>{trilha.id}</td>
+        <tr className="linha">
           <td>{trilha.trilha}</td>
+          <td>URL - Imagem</td>
           <td>{trilha.descricao}</td>
-          <td>
+          <td className="btn-action">
             <button
               type="button"
               className="button-editar"
@@ -26,11 +26,10 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     }
     else if (opcao == "Cursos"){
       return (
-        <tr>
-          <td>{trilha.id}</td>
+        <tr className="linha">
           <td>{trilha.nome}</td>
-          <td>{trilha.aulas}</td>
-          <td>
+          <td>Descrição dos cursos</td>
+          <td className="btn-action">
             <button
               type="button"
               className="button-editar"
@@ -47,11 +46,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     }
     else if (opcao == "Aulas") {
       return (
-        <tr>
-          <td>{trilha.id}</td>
+        <tr className="linha">
           <td>{trilha.nome}</td>
           <td>{trilha.aulas}</td>
-          <td>
+          <td>Professor</td>
+          <td>URL</td>
+          <td>Tipo</td>
+          <td className="btn-action">
             <button
               type="button"
               className="button-editar"
@@ -68,11 +69,10 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     }
     else if (opcao == "Usuários") {
       return (
-        <tr>
-          <td>{trilha.id}</td>
+        <tr className="linha">
           <td>{trilha.nome}</td>
           <td>{trilha.email}</td>
-          <td>
+          <td className="btn-action">
             <button
               type="button"
               className="button-editar"

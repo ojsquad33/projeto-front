@@ -14,8 +14,8 @@ const EditableRow = ({
           <input
             type="text"
             required="required"
-            placeholder="ID"
-            defaultValue={editFormData.id}
+            placeholder="Digite o nome da trilha..."
+            defaultValue={editFormData.trilha}
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -24,7 +24,7 @@ const EditableRow = ({
             type="text"
             required="required"
             placeholder="Digite o nome da trilha..."
-            defaultValue={editFormData.trilha}
+            defaultValue="URL - Imagem"
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -39,8 +39,7 @@ const EditableRow = ({
         </td>
         <td>
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}>
-          </button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
         </td>
       </tr>
     );
@@ -48,15 +47,6 @@ const EditableRow = ({
   else if (opcao == "Cursos"){
     return (
       <tr>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="ID"
-            defaultValue={editFormData.id}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
         <td>
           <input
             type="text"
@@ -77,8 +67,7 @@ const EditableRow = ({
         </td>
         <td>
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}>
-          </button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
         </td>
       </tr>
     );
@@ -86,15 +75,6 @@ const EditableRow = ({
   else if (opcao == "Aulas"){
     return (
       <tr>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="ID"
-            defaultValue={editFormData.id}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
         <td>
           <input
             type="text"
@@ -114,9 +94,35 @@ const EditableRow = ({
           ></input>
         </td>
         <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o professor da aula..."
+            defaultValue="Professor"
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite a URL da aula..."
+            defaultValue="URL"
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o tipo da aula..."
+            defaultValue="Tipo"
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}>
-          </button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
         </td>
       </tr>
     );
@@ -124,15 +130,6 @@ const EditableRow = ({
   else if (opcao == "Usuários"){
     return (
       <tr>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="ID"
-            defaultValue={editFormData.id}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
         <td>
           <input
             type="text"
@@ -153,8 +150,7 @@ const EditableRow = ({
         </td>
         <td>
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}>
-          </button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
         </td>
       </tr>
     );
