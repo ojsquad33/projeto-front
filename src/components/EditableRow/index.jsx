@@ -1,52 +1,164 @@
 import React from "react";
+import "./style/style.css";
 
 const EditableRow = ({
+  opcao,
   editFormData,
   handleEditFormChange,
   handleCancelClick,
 }) => {
-  var coluna1 = document.getElementById("coluna1").innerHTML;
-  var coluna2 = document.getElementById("coluna2").innerHTML;
-  return (
-    <tr>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="ID"
-          name="id"
-          value={editFormData.id}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder={coluna1}
-          name="trilha"
-          value={editFormData.trilha}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <input
-          type="text"
-          required="required"
-          placeholder={coluna2}
-          name="descricao"
-          value={editFormData.descricao}
-          onChange={handleEditFormChange}
-        ></input>
-      </td>
-      <td>
-        <button type="submit">Salvar</button>
-        <button type="button" onClick={handleCancelClick}>
-          Cancelar
-        </button>
-      </td>
-    </tr>
-  );
+  if (opcao == "Trilhas"){
+    return (
+      <tr>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="ID"
+            defaultValue={editFormData.id}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o nome da trilha..."
+            defaultValue={editFormData.trilha}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite a descrição..."
+            defaultValue={editFormData.descricao}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <button className="salvar" type="submit"></button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}>
+          </button>
+        </td>
+      </tr>
+    );
+  }
+  else if (opcao == "Cursos"){
+    return (
+      <tr>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="ID"
+            defaultValue={editFormData.id}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o nome do curso..."
+            defaultValue={editFormData.nome}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o título das aulas..."
+            defaultValue={editFormData.aulas}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <button className="salvar" type="submit"></button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}>
+          </button>
+        </td>
+      </tr>
+    );
+  }
+  else if (opcao == "Aulas"){
+    return (
+      <tr>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="ID"
+            defaultValue={editFormData.id}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o nome da aula..."
+            defaultValue={editFormData.nome}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o conteúdo da aula..."
+            defaultValue={editFormData.aulas}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <button className="salvar" type="submit"></button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}>
+          </button>
+        </td>
+      </tr>
+    );
+  }
+  else if (opcao == "Usuários"){
+    return (
+      <tr>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="ID"
+            defaultValue={editFormData.id}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o nome do usuário..."
+            defaultValue={editFormData.nome}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o e-mail do usuário..."
+            defaultValue={editFormData.email}
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <button className="salvar" type="submit"></button>
+          <button className="cancelar" type="button" onClick={handleCancelClick}>
+          </button>
+        </td>
+      </tr>
+    );
+  }
 };
 
 export default EditableRow;

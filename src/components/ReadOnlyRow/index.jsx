@@ -1,4 +1,5 @@
 import {React, useState} from "react";
+import "./style/style.css";
 
 const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
   {
@@ -11,12 +12,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
           <td>
             <button
               type="button"
-              onClick={(event) => handleEditClick(event, trilha)}
-            >
-              Editar
+              className="button-editar"
+              onClick={(event) => handleEditClick(event, trilha)}>
             </button>
-            <button type="button" onClick={() => handleDeleteClick(trilha.id)}>
-              Deletar
+            <button 
+              type="button"
+              className="button-deletar" 
+              onClick={() => handleDeleteClick(trilha.id)}>
             </button>
           </td>
         </tr>
@@ -31,12 +33,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
           <td>
             <button
               type="button"
-              onClick={(event) => handleEditClick(event, trilha)}
-            >
-              Editar
+              className="button-editar"
+              onClick={(event) => handleEditClick(event, trilha)}>
             </button>
-            <button type="button" onClick={() => handleDeleteClick(trilha.id)}>
-              Deletar
+            <button 
+              type="button"
+              className="button-deletar" 
+              onClick={() => handleDeleteClick(trilha.id)}>
             </button>
           </td>
         </tr>
@@ -51,12 +54,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
           <td>
             <button
               type="button"
-              onClick={(event) => handleEditClick(event, trilha)}
-            >
-              Editar
+              className="button-editar"
+              onClick={(event) => handleEditClick(event, trilha)}>
             </button>
-            <button type="button" onClick={() => handleDeleteClick(trilha.id)}>
-              Deletar
+            <button 
+              type="button"
+              className="button-deletar" 
+              onClick={() => handleDeleteClick(trilha.id)}>
             </button>
           </td>
         </tr>
@@ -71,12 +75,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
           <td>
             <button
               type="button"
-              onClick={(event) => handleEditClick(event, trilha)}
-            >
-              Editar
+              className="button-editar"
+              onClick={(event) => handleEditClick(event, trilha)}>
             </button>
-            <button type="button" onClick={() => handleDeleteClick(trilha.id)}>
-              Deletar
+            <button 
+              type="button"
+              className="button-deletar" 
+              onClick={() => handleDeleteClick(trilha.id)}>
             </button>
           </td>
         </tr>

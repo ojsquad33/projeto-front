@@ -19,6 +19,9 @@ const ConteudoAdmin = () => {
     id: "",
     trilha: "",
     descricao: "",
+    nome: "",
+    aulas: "",
+    email: "",
   });
 
   const [editTrilhaId, setEditTrilhaId] = useState(null);
@@ -67,6 +70,9 @@ const ConteudoAdmin = () => {
       id: editTrilhaId.id, 
       trilha: editFormData.trilha,
       descricao: editFormData.descricao,
+      nome: editFormData.nome,
+      email: editFormData.email,
+      aulas: editFormData.aulas,
     };
 
     const newTrilhas = [...trilha];
@@ -85,6 +91,9 @@ const ConteudoAdmin = () => {
       id: trilha.id,
       trilha: trilha.trilha,
       descricao: trilha.descricao,
+      nome: trilha.nome,
+      email: trilha.email,
+      aulas: trilha.aulas,
     };
     setEditFormData(formValues);
   };
@@ -125,6 +134,9 @@ const ConteudoAdmin = () => {
             }>Cursos</a></li>
             <li><a id="aulas" href="#" onClick={() => {
                 setOpcao(document.getElementById("aulas").innerHTML);
+                setDados(cursos);
+                setColuna1("Nome");
+                setColuna2("Aulas");
             }
             }>Aulas</a></li>
             <li><a id="usuarios" href="#" onClick={() => {
@@ -152,6 +164,7 @@ const ConteudoAdmin = () => {
                 <>
                   {editTrilhaId === trilha.id ? (
                     <EditableRow
+                      opcao = {opcao}
                       editFormData={editFormData}
                       handleEditFormChange={handleEditFormChange}
                       handleCancelClick={handleCancelClick}
@@ -169,7 +182,7 @@ const ConteudoAdmin = () => {
             </tbody>
           </table>
         </form>
-        <h2 className="add">Adicionar {opcao}</h2>
+        <h2 id="tipo" className="add">Adicionar {opcao}</h2>
         <form onSubmit={handleAddFormSubmit}>
           <input
             type="text"

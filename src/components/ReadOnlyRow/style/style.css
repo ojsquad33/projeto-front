@@ -1,0 +1,18 @@
+.button-editar{
+    background-image: url("/src/assets/edit-button.svg");
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border: white;
+    cursor: pointer;
+}
+.button-deletar{
+    background-image: url("/src/assets/delete-button.svg");
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border: white;
+    cursor: pointer;
+}
