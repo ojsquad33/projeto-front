@@ -13,13 +13,12 @@ const Accordion = ({ curso }) => {
         <div className="trilha-info">
           <Link
             to={{
-              pathname: `/aula/${curso.id}`,
+              pathname: `/aula/${curso[0].id}`,
             }}
           >
             Acessar
           </Link>
           {curso[0].nome}
-          {console.log(curso[0].aulas)}
         </div>
       </div>
       <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>

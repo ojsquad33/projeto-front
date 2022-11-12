@@ -1,11 +1,30 @@
 import "./style.css";
 import Topicos from "../Topicos";
-import cursos from "../../services/database_cursos";
+// import cursos from "../../services/database_cursos";
 import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
 
 function ListaAulas() {
   let { curso_id } = useParams();
+  const [cursos, setCursos] = useState([]);
+
+  const getCurso = async () => {
+    try {
+      const { data } = await axios.get(`/cursos`, {
+        withCredentials: true,
+      });
+      setCursos(data.content);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    getCurso();
+  }, []);
+
   let curso = cursos.find((curso) => curso.id === Number(curso_id));
+
   return (
     <div className="aulas">
       <nav>

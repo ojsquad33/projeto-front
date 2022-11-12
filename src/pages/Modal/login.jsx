@@ -39,11 +39,10 @@ const ModalLogin = ({
         {
           username: user,
           senha: pwd,
+        },
+        {
+          withCredentials: true,
         }
-        // {
-        //   headers: { "Content-type": "application/json" },
-        //   withCredentials: true,
-        // }
       );
       const accessToken = response?.data?.token; //alterar esse caminho
       const roles = response?.data?.roles;
