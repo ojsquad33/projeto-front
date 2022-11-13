@@ -14,6 +14,7 @@ function ListaAulas() {
       const { data } = await axios.get(`/cursos`, {
         withCredentials: true,
       });
+      console.log(data);
       setCursos(data.content);
     } catch (error) {
       console.error(error);
@@ -23,7 +24,7 @@ function ListaAulas() {
     getCurso();
   }, []);
 
-  let curso = cursos.find((curso) => curso.id === Number(curso_id));
+  // let curso = cursos.find((curso) => curso.id === Number(curso_id));
 
   return (
     <div className="aulas">
@@ -31,10 +32,10 @@ function ListaAulas() {
         <ul>
           <li>
             <a className="aula-selecionada" href="#">
-              {cursos[curso.id - 1].nome}
+              {/* {cursos[curso.id - 1].nome} */}
             </a>
             <ul>
-              {cursos.map((modulo, index) => {
+              {/* {cursos.map((modulo, index) => {
                 var trilha = cursos[curso.id - 1].trilha_id;
                 if (modulo.trilha_id === trilha && modulo.id !== curso.id) {
                   return (
@@ -43,7 +44,7 @@ function ListaAulas() {
                     </li>
                   );
                 }
-              })}
+              })} */}
             </ul>
           </li>
         </ul>

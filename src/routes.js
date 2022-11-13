@@ -24,11 +24,13 @@ export default function MainRoutes() {
           <Route path="" element={<Aula />} />
         </Route>
       </Route>
+
       <Route element={<RequireAuth allowedRoles={["ADM"]} />}>
         <Route path="home" element={<Header text="Configurações" />}>
           <Route path="admin" element={<Admin />} />
         </Route>
       </Route>
+
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -9,7 +9,6 @@ const ModalCadastro = ({
   onClose = () => {},
 }) => {
   const errRef = useRef();
-  // const [nome, setNome] = useState("");
   const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [matchSenha, setMatchSenha] = useState("");
@@ -31,7 +30,6 @@ const ModalCadastro = ({
     }
     try {
       const response = await axios.post("/usuarios/signup", {
-        // nome,
         username,
         senha,
       });
@@ -65,16 +63,6 @@ const ModalCadastro = ({
         </button>
         <img src={Logo} alt="Logo da Orange Evolution." />
         <form onSubmit={handleSubmit}>
-          {/* <div className="info">
-            <input
-              type="text"
-              id="nome"
-              placeholder="Nome completo"
-              autoComplete="off"
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
-          </div> */}
           <div className="info">
             <input
               type="text"

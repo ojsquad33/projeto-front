@@ -1,7 +1,7 @@
 import "./style.scss";
 import Trilhas from "../../components/Trilhas";
 import ListaCurso from "../../components/ListaCurso";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import trilhas from "../../services/database";
 
 function Home() {

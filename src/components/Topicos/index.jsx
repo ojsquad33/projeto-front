@@ -35,9 +35,9 @@ const Topicos = () => {
                     }
                   }}
                 />
-                {aula}
                 <span className="checkmark"></span>
               </label>
+              <p className="texto-aula">{aula}</p>
             </li>
           );
         })}

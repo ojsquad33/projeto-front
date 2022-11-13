@@ -4,7 +4,7 @@ const NotFound = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   return (
-    <section className="container">
+    <section className="container-error">
       <div className="no-access">
         <h1>Não encontrado</h1>
         <br />

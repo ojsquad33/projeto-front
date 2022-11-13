@@ -2,16 +2,14 @@ import "./style.scss";
 import Logo from "../../assets/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
+import { setItem } from "../../utils/storage";
 
 const ModalLogin = ({
   id = "close",
   handleModalCadastroOpening,
   onClose = () => {},
 }) => {
-  const { setAuth } = useAuth();
-
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -44,12 +42,13 @@ const ModalLogin = ({
           withCredentials: true,
         }
       );
-      const accessToken = response?.data?.token; //alterar esse caminho
-      const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
+      const { roles } = response?.data;
+      const { username } = response?.data;
+      setItem("roles", roles);
+      setItem("user", username);
       setUser("");
       setPwd("");
-      navigate(from, { replace: true });
+      navigate("/home");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response.");

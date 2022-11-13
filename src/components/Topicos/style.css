@@ -3,25 +3,18 @@
 }
 
 .topicos ul {
-  padding: 20px;
+  padding: 2vh;
   list-style: none;
 }
 .topicos ul > li {
-  margin-bottom: 30px;
+  margin-bottom: 4vh;
   font-size: 2.5vh;
 }
 
-#subtopicos {
-  margin-right: 10px;
-}
 #label-subtopicos {
   cursor: pointer;
-}
-
-#label-subtopicos {
   display: block;
   position: relative;
-  padding-left: 6vh;
 }
 
 #label-subtopicos input {
@@ -71,4 +64,9 @@
 /* Exibir o ícone quando selecionado */
 #label-subtopicos input:checked ~ .checkmark:after {
   display: block;
+}
+
+.texto-aula {
+  display: flex;
+  margin-left: 5vh;
 }
