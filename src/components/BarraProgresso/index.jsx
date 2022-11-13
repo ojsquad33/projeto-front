@@ -1,5 +1,3 @@
-import "./style.css";
-
 const BarraProgresso = ({ bgcolor, completed }) => {
   const containerStyles = {
     height: "3vh",
@@ -7,7 +5,7 @@ const BarraProgresso = ({ bgcolor, completed }) => {
     backgroundColor: "rgb(211, 211, 211)",
     border: "1px solid rgb(128, 128, 128)",
     borderRadius: "20px",
-    marginBottom: "3vh",
+    marginBottom: "5vh",
   };
 
   const fillerStyles = {
@@ -17,9 +15,7 @@ const BarraProgresso = ({ bgcolor, completed }) => {
     width: `${completed}%`,
     backgroundColor: bgcolor,
     borderRadius: "inherit",
-    // textAlign: "center",
     transition: "width 0.5s ease-in-out",
-    textAlign: "end",
   };
 
   const labelStyles = {

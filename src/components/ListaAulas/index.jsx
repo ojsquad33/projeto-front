@@ -1,11 +1,10 @@
 import "./style.css";
 import Topicos from "../Topicos";
-// import cursos from "../../services/database_cursos";
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 
-function ListaAulas() {
+function ListaAulas({ setUrlVideo }) {
   let { curso_id } = useParams();
   const [cursos, setCursos] = useState([]);
 
@@ -14,43 +13,40 @@ function ListaAulas() {
       const { data } = await axios.get(`/cursos`, {
         withCredentials: true,
       });
-      console.log(data);
-      setCursos(data.content);
+      setCursos(data);
     } catch (error) {
       console.error(error);
     }
   };
+
   useEffect(() => {
     getCurso();
   }, []);
 
-  // let curso = cursos.find((curso) => curso.id === Number(curso_id));
+  const cursoAtual = cursos.find((curso) => curso.id === Number(curso_id));
 
   return (
     <div className="aulas">
       <nav>
         <ul>
           <li>
-            <a className="aula-selecionada" href="#">
-              {/* {cursos[curso.id - 1].nome} */}
-            </a>
+            <a className="aula-selecionada">{cursoAtual && cursoAtual.nome}</a>
             <ul>
-              {/* {cursos.map((modulo, index) => {
-                var trilha = cursos[curso.id - 1].trilha_id;
-                if (modulo.trilha_id === trilha && modulo.id !== curso.id) {
+              {cursos.map((curso, index) => {
+                if (curso.id !== cursoAtual.id) {
                   return (
                     <li key={index}>
-                      <a href={index + 1}>{modulo.nome}</a>
+                      <a href={index + 1}>{curso.nome}</a>
                     </li>
                   );
                 }
-              })} */}
+              })}
             </ul>
           </li>
         </ul>
       </nav>
 
-      <Topicos />
+      <Topicos setUrlVideo={setUrlVideo} />
       <Link to="/home" className="go-back">
         Voltar para o menu de trilhas →
       </Link>
