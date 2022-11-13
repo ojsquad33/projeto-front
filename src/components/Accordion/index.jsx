@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Accordion = ({ curso }) => {
   const [isOpen, setOpen] = useState(false);
+
   return (
     <div className="accordion-wrapper">
       <div
@@ -23,12 +24,9 @@ const Accordion = ({ curso }) => {
       </div>
       <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
         <div className="accordion-content">
-          {
-            // curso.aulas &&
-            curso[0].aulas.map((aula, index) => {
-              return <li key={index}>{aula.titulo}</li>;
-            })
-          }
+          {curso[0].aulas.map((aula, index) => {
+            return <li key={index}>{aula.titulo}</li>;
+          })}
         </div>
       </div>
     </div>

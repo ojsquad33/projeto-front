@@ -28,7 +28,7 @@ const Header = ({ text }) => {
           <h1>{title}</h1>
         </div>
         <div className="right-side">
-          <h1>Bem vindo, {user}!</h1>
+          <h1>Bem-vindo(a), {user}!</h1>
           <img src={Logout} alt="Clique para sair." onClick={signOut} />
         </div>
       </header>

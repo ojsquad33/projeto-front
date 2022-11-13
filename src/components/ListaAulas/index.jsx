@@ -24,6 +24,7 @@ function ListaAulas({ setUrlVideo }) {
   }, []);
 
   const cursoAtual = cursos.find((curso) => curso.id === Number(curso_id));
+  // cursoAtual && setUrlVideo(cursoAtual.aulas[0].url);
 
   return (
     <div className="aulas">
@@ -33,7 +34,10 @@ function ListaAulas({ setUrlVideo }) {
             <a className="aula-selecionada">{cursoAtual && cursoAtual.nome}</a>
             <ul>
               {cursos.map((curso, index) => {
-                if (curso.id !== cursoAtual.id) {
+                if (
+                  // curso.trilha_id === cursoAtual.trilha_id &&
+                  curso.id !== cursoAtual.id
+                ) {
                   return (
                     <li key={index}>
                       <a href={index + 1}>{curso.nome}</a>

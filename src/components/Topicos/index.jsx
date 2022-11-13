@@ -7,6 +7,7 @@ import axios from "../../api/axios";
 const Topicos = ({ setUrlVideo }) => {
   const [count, setCount] = useState(0);
   const [cursos, setCursos] = useState([]);
+  const [aulaAtual, setAulaAtual] = useState();
   let { curso_id } = useParams();
   const getCurso = async () => {
     try {
@@ -32,7 +33,15 @@ const Topicos = ({ setUrlVideo }) => {
         {cursoAtual &&
           cursoAtual.aulas.map((aula, index) => {
             return (
-              <li key={index}>
+              <li
+                className={`nome-aula ${
+                  aula.id === aulaAtual ? " aula-atual" : ""
+                }`}
+                key={index}
+                onClick={() => {
+                  setAulaAtual(aula.id);
+                }}
+              >
                 <label id="label-subtopicos">
                   <input
                     name={index}
@@ -57,7 +66,7 @@ const Topicos = ({ setUrlVideo }) => {
                   />
                   <span className="checkmark"></span>
                 </label>
-                <p className="texto-aula" onClick={setUrlVideo(aula.url)}>
+                <p className="texto-aula" onClick={() => setUrlVideo(aula.url)}>
                   {aula.titulo}
                 </p>
               </li>

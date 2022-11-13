@@ -7,7 +7,6 @@
   list-style: none;
 }
 .topicos ul > li {
-  margin-bottom: 4vh;
   font-size: 2.5vh;
 }
 
@@ -35,17 +34,14 @@
   border-radius: 50%;
 }
 
-/* Adicionar uma cor de fundo cinza ao passar o mouse */
 #label-subtopicos:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* Quando o checkbox é clicado, adicionar um fundo rosa */
 #label-subtopicos input:checked ~ .checkmark {
   background-color: #ee41a8;
 }
 
-/* Criar o ícone de check, escondido quando não estiver selecionado */
 #label-subtopicos .checkmark:after {
   content: "";
   position: absolute;
@@ -61,7 +57,6 @@
   transform: rotate(45deg);
 }
 
-/* Exibir o ícone quando selecionado */
 #label-subtopicos input:checked ~ .checkmark:after {
   display: block;
 }
@@ -69,4 +64,13 @@
 .texto-aula {
   display: flex;
   margin-left: 5vh;
+}
+
+.nome-aula {
+  cursor: pointer;
+  padding: 2vh 1vh;
+}
+
+.aula-atual {
+  background-color: rgba(238, 65, 168, 0.3);
 }
