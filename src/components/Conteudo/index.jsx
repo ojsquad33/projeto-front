@@ -6,7 +6,7 @@ function Conteudo({ urlVideo }) {
       return (
         <div className="conteudo-aula">
           <a href={urlVideo} target="blank">
-            Link do conteúdo: {urlVideo}
+            Selecione uma aula para ver o link: {urlVideo}
           </a>
           <iframe
             className="conteudo-aula"
