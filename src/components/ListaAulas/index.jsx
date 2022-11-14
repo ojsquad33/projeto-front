@@ -24,7 +24,6 @@ function ListaAulas({ setUrlVideo }) {
   }, []);
 
   const cursoAtual = cursos.find((curso) => curso.id === Number(curso_id));
-  // cursoAtual && setUrlVideo(cursoAtual.aulas[0].url);
 
   return (
     <div className="aulas">

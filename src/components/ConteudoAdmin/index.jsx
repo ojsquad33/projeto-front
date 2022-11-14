@@ -1,14 +1,38 @@
-import "./style/style.css";
+import "./style.css";
 import trilhasSemPaginacao from "../../services/database_all";
 import cursos from "../../services/database_cursos";
 import usuarios from "../../services/database_usuarios";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
 import Formulario from "../Formulario";
+import axios from "../../api/axios";
 
 const ConteudoAdmin = () => {
   const [trilha, setTrilhas] = useState(0);
+  const [length, setLength] = useState(0);
+  const [trilhasSemPaginacao, setTrilhaSemPaginacao] = useState([]);
+  const arrayTrilhas = [];
+
+  const getTrilha = async () => {
+    try {
+      const { data } = await axios.get(`/trilhas`);
+      setLength(data.totalPages);
+      for (let i = 0; i < length; i++) {
+        const { data } = await axios.get(`/trilhas?page=${i}`);
+        data.content.forEach((item) => arrayTrilhas.push(item));
+        setTrilhaSemPaginacao(arrayTrilhas);
+        console.log("eu aqui");
+      }
+      console.log(trilhasSemPaginacao);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getTrilha();
+  }, []);
 
   const [addFormData, setAddFormData] = useState({
     trilha: "",
@@ -53,7 +77,7 @@ const ConteudoAdmin = () => {
     event.preventDefault();
 
     const newTrilha = {
-      trilha: addFormData.trilha, 
+      trilha: addFormData.trilha,
       descricao: addFormData.descricao,
     };
 
@@ -74,7 +98,7 @@ const ConteudoAdmin = () => {
 
     const newTrilhas = [...trilha];
     const index = trilha.findIndex((trilha) => trilha.id === editTrilhaId);
-    newTrilhas[index] = editedTrilha; 
+    newTrilhas[index] = editedTrilha;
 
     setTrilhas(newTrilhas);
     setEditTrilhaId(null);
@@ -105,19 +129,23 @@ const ConteudoAdmin = () => {
     setTrilhas(newTrilhas);
   };
 
-  const [opcao, setOpcao] = useState("Trilhas")
-  const [dados, setDados] = useState(trilhasSemPaginacao)
-  const [coluna1, setColuna1] = useState("Trilha")
-  const [coluna2, setColuna2] = useState("Descrição")
-  const [coluna3, setColuna3] = useState("")
-  const [coluna4, setColuna4] = useState("")
-  const [coluna5, setColuna5] = useState("")
+  const [opcao, setOpcao] = useState("Trilhas");
+  const [dados, setDados] = useState(trilhasSemPaginacao);
+  const [coluna1, setColuna1] = useState("Trilha");
+  const [coluna2, setColuna2] = useState("Descrição");
+  const [coluna3, setColuna3] = useState("");
+  const [coluna4, setColuna4] = useState("");
+  const [coluna5, setColuna5] = useState("");
 
   return (
     <div className="app-container">
       <nav className="side-bar">
         <ul className="opcoes">
-            <li><a id="trilha" href="#" onClick={() => {
+          <li>
+            <a
+              id="trilha"
+              href="#"
+              onClick={() => {
                 setOpcao(document.getElementById("trilha").innerHTML);
                 setDados(trilhasSemPaginacao);
                 setColuna1("Trilha");
@@ -125,9 +153,16 @@ const ConteudoAdmin = () => {
                 setColuna3("Descrição");
                 setColuna4("");
                 setColuna5("");
-            }
-            }>Trilhas</a></li>
-            <li><a id="cursos" href="#" onClick={() => {
+              }}
+            >
+              Trilhas
+            </a>
+          </li>
+          <li>
+            <a
+              id="cursos"
+              href="#"
+              onClick={() => {
                 setOpcao(document.getElementById("cursos").innerHTML);
                 setDados(cursos);
                 setColuna1("Nome");
@@ -135,9 +170,16 @@ const ConteudoAdmin = () => {
                 setColuna3("");
                 setColuna4("");
                 setColuna5("");
-            }
-            }>Cursos</a></li>
-            <li><a id="aulas" href="#" onClick={() => {
+              }}
+            >
+              Cursos
+            </a>
+          </li>
+          <li>
+            <a
+              id="aulas"
+              href="#"
+              onClick={() => {
                 setOpcao(document.getElementById("aulas").innerHTML);
                 setDados(cursos);
                 setColuna1("Título");
@@ -145,9 +187,16 @@ const ConteudoAdmin = () => {
                 setColuna3("Professor");
                 setColuna4("URL");
                 setColuna5("Tipo");
-            }
-            }>Aulas</a></li>
-            <li><a id="usuarios" href="#" onClick={() => {
+              }}
+            >
+              Aulas
+            </a>
+          </li>
+          <li>
+            <a
+              id="usuarios"
+              href="#"
+              onClick={() => {
                 setOpcao(document.getElementById("usuarios").innerHTML);
                 setDados(usuarios);
                 setColuna1("Nome");
@@ -155,10 +204,13 @@ const ConteudoAdmin = () => {
                 setColuna3("");
                 setColuna4("");
                 setColuna5("");
-            }
-            }>Usuários</a></li>
+              }}
+            >
+              Usuários
+            </a>
+          </li>
         </ul>
-      </nav> 
+      </nav>
       <nav className="conteudo-admin">
         <form onSubmit={handleEditFormSubmit}>
           <table className="tabela">
@@ -177,14 +229,14 @@ const ConteudoAdmin = () => {
                 <>
                   {editTrilhaId === trilha.id ? (
                     <EditableRow
-                      opcao = {opcao}
+                      opcao={opcao}
                       editFormData={editFormData}
                       handleEditFormChange={handleEditFormChange}
                       handleCancelClick={handleCancelClick}
                     />
                   ) : (
                     <ReadOnlyRow
-                      opcao = {opcao}
+                      opcao={opcao}
                       trilha={trilha}
                       handleEditClick={handleEditClick}
                       handleDeleteClick={handleDeleteClick}
@@ -195,20 +247,24 @@ const ConteudoAdmin = () => {
             </tbody>
           </table>
         </form>
-        <h2 id="tipo" className="add">Adicionar {opcao}</h2>
-        <Formulario 
-        opcao={opcao}
-        coluna1={coluna1}
-        coluna2={coluna2}
-        coluna3={coluna3}
-        coluna4={coluna4}
-        coluna5={coluna5}
-        handleAddFormSubmit={handleAddFormSubmit}
-        handleAddFormChange={handleAddFormChange}
-        />
+        <div className="add-options">
+          <h2 id="tipo" className="add">
+            Adicionar {opcao}
+          </h2>
+          <Formulario
+            opcao={opcao}
+            coluna1={coluna1}
+            coluna2={coluna2}
+            coluna3={coluna3}
+            coluna4={coluna4}
+            coluna5={coluna5}
+            handleAddFormSubmit={handleAddFormSubmit}
+            handleAddFormChange={handleAddFormChange}
+          />
+        </div>
       </nav>
     </div>
   );
 };
 
-export default ConteudoAdmin
+export default ConteudoAdmin;

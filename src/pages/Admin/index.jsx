@@ -1,4 +1,4 @@
-import "./style/style.css";
+import "./style.css";
 import ConteudoAdmin from "../../components/ConteudoAdmin";
 
 function Admin() {

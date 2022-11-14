@@ -1,0 +1,82 @@
+.app-container {
+  display: flex;
+  padding: 3vh;
+  width: 100%;
+  max-height: 100%;
+}
+
+.side-bar {
+  display: flex;
+  width: 20vh;
+  height: 100%;
+  font-size: 2.3vh;
+  font-weight: 700;
+  position: sticky;
+  left: 0;
+}
+
+.side-bar .opcoes {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 2vh;
+}
+
+.opcoes a {
+  text-decoration: none;
+  color: #000;
+}
+
+.opcoes a:hover {
+  color: #ee41a8;
+}
+
+.conteudo-admin {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  font-size: 2vh;
+  gap: 5vh;
+  overflow: auto;
+}
+
+.tabela {
+  padding: 1vh;
+  border-collapse: collapse;
+}
+
+.tabela-cabecalho {
+  text-align: left;
+  border-bottom: 2px solid rgb(128, 128, 128);
+  padding: 1vh;
+}
+
+thead.tabela-cabecalho > tr > th {
+  padding: 1vh;
+}
+
+.add-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vh;
+  padding: 0 5vh;
+}
+
+.add-options h2 {
+  font-size: 2.5vh;
+}
+
+.conteudo-admin::-webkit-scrollbar {
+  width: 10px;
+}
+
+.conteudo-admin::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.conteudo-admin::-webkit-scrollbar-thumb {
+  background-color: #8b8b8b;
+  border-radius: 8px;
+  border: 3px solid #fff;
+}

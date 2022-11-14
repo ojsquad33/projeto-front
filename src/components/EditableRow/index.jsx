@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/style.css";
+import "./style.css";
 
 const EditableRow = ({
   opcao,
@@ -7,9 +7,9 @@ const EditableRow = ({
   handleEditFormChange,
   handleCancelClick,
 }) => {
-  if (opcao == "Trilhas"){
+  if (opcao == "Trilhas") {
     return (
-      <tr>
+      <tr className="edit-row">
         <td>
           <input
             type="text"
@@ -37,16 +37,19 @@ const EditableRow = ({
             onChange={handleEditFormChange}
           ></input>
         </td>
-        <td>
+        <td className="save-cancel">
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
+          <button
+            className="cancelar"
+            type="button"
+            onClick={handleCancelClick}
+          ></button>
         </td>
       </tr>
     );
-  }
-  else if (opcao == "Cursos"){
+  } else if (opcao == "Cursos") {
     return (
-      <tr>
+      <tr className="edit-row">
         <td>
           <input
             type="text"
@@ -65,16 +68,19 @@ const EditableRow = ({
             onChange={handleEditFormChange}
           ></input>
         </td>
-        <td>
+        <td className="save-cancel">
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
+          <button
+            className="cancelar"
+            type="button"
+            onClick={handleCancelClick}
+          ></button>
         </td>
       </tr>
     );
-  }
-  else if (opcao == "Aulas"){
+  } else if (opcao == "Aulas") {
     return (
-      <tr>
+      <tr className="edit-row">
         <td>
           <input
             type="text"
@@ -120,16 +126,19 @@ const EditableRow = ({
             onChange={handleEditFormChange}
           ></input>
         </td>
-        <td>
+        <td className="save-cancel">
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
+          <button
+            className="cancelar"
+            type="button"
+            onClick={handleCancelClick}
+          ></button>
         </td>
       </tr>
     );
-  }
-  else if (opcao == "Usuários"){
+  } else if (opcao == "Usuários") {
     return (
-      <tr>
+      <tr className="edit-row">
         <td>
           <input
             type="text"
@@ -148,9 +157,13 @@ const EditableRow = ({
             onChange={handleEditFormChange}
           ></input>
         </td>
-        <td>
+        <td className="save-cancel">
           <button className="salvar" type="submit"></button>
-          <button className="cancelar" type="button" onClick={handleCancelClick}></button>
+          <button
+            className="cancelar"
+            type="button"
+            onClick={handleCancelClick}
+          ></button>
         </td>
       </tr>
     );

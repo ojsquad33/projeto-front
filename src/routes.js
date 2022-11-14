@@ -26,8 +26,8 @@ export default function MainRoutes() {
       </Route>
 
       <Route element={<RequireAuth allowedRoles={["ADM,USER"]} />}>
-        <Route path="home" element={<Header text="Configurações" />}>
-          <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<Header text="Configurações" />}>
+          <Route path="" element={<Admin />} />
         </Route>
       </Route>
 

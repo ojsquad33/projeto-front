@@ -1,9 +1,9 @@
-import {React, useState} from "react";
-import "./style/style.css";
+import { React, useState } from "react";
+import "./style.css";
 
 const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
   {
-    if (opcao == "Trilhas"){
+    if (opcao == "Trilhas") {
       return (
         <tr className="linha">
           <td>{trilha.trilha}</td>
@@ -13,18 +13,17 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
             <button
               type="button"
               className="button-editar"
-              onClick={(event) => handleEditClick(event, trilha)}>
-            </button>
-            <button 
+              onClick={(event) => handleEditClick(event, trilha)}
+            ></button>
+            <button
               type="button"
-              className="button-deletar" 
-              onClick={() => handleDeleteClick(trilha.id)}>
-            </button>
+              className="button-deletar"
+              onClick={() => handleDeleteClick(trilha.id)}
+            ></button>
           </td>
         </tr>
       );
-    }
-    else if (opcao == "Cursos"){
+    } else if (opcao == "Cursos") {
       return (
         <tr className="linha">
           <td>{trilha.nome}</td>
@@ -33,18 +32,17 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
             <button
               type="button"
               className="button-editar"
-              onClick={(event) => handleEditClick(event, trilha)}>
-            </button>
-            <button 
+              onClick={(event) => handleEditClick(event, trilha)}
+            ></button>
+            <button
               type="button"
-              className="button-deletar" 
-              onClick={() => handleDeleteClick(trilha.id)}>
-            </button>
+              className="button-deletar"
+              onClick={() => handleDeleteClick(trilha.id)}
+            ></button>
           </td>
         </tr>
       );
-    }
-    else if (opcao == "Aulas") {
+    } else if (opcao == "Aulas") {
       return (
         <tr className="linha">
           <td>{trilha.nome}</td>
@@ -56,18 +54,17 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
             <button
               type="button"
               className="button-editar"
-              onClick={(event) => handleEditClick(event, trilha)}>
-            </button>
-            <button 
+              onClick={(event) => handleEditClick(event, trilha)}
+            ></button>
+            <button
               type="button"
-              className="button-deletar" 
-              onClick={() => handleDeleteClick(trilha.id)}>
-            </button>
+              className="button-deletar"
+              onClick={() => handleDeleteClick(trilha.id)}
+            ></button>
           </td>
         </tr>
       );
-    }
-    else if (opcao == "Usuários") {
+    } else if (opcao == "Usuários") {
       return (
         <tr className="linha">
           <td>{trilha.nome}</td>
@@ -76,13 +73,13 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
             <button
               type="button"
               className="button-editar"
-              onClick={(event) => handleEditClick(event, trilha)}>
-            </button>
-            <button 
+              onClick={(event) => handleEditClick(event, trilha)}
+            ></button>
+            <button
               type="button"
-              className="button-deletar" 
-              onClick={() => handleDeleteClick(trilha.id)}>
-            </button>
+              className="button-deletar"
+              onClick={() => handleDeleteClick(trilha.id)}
+            ></button>
           </td>
         </tr>
       );
