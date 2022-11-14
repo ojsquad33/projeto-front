@@ -1,17 +1,25 @@
 import "./style.scss";
 import Logo2 from "../../assets/logo2.svg";
 import Logout from "../../assets/logout.svg";
-import usuarios from "../../services/database_usuarios.js";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams, useNavigate } from "react-router-dom";
 import cursos from "../../services/database_cursos";
 import trilhasSemPaginacao from "../../services/database_all";
+import { clear } from "../../utils/storage";
+import { getItem } from "../../utils/storage";
 
 const Header = ({ text }) => {
+  const navigate = useNavigate();
   let { curso_id } = useParams();
   let curso = cursos.find((curso) => curso.id === Number(curso_id));
   let title = !text
     ? `Trilha: ${trilhasSemPaginacao[curso.trilha_id - 1].trilha}`
     : text;
+  const user = getItem("user");
+
+  const signOut = async () => {
+    clear();
+    navigate("/");
+  };
   return (
     <div className="header-pages">
       <header>
@@ -20,10 +28,8 @@ const Header = ({ text }) => {
           <h1>{title}</h1>
         </div>
         <div className="right-side">
-          <h1>Bem vindo, {usuarios[0].nome}!</h1>
-          <Link to="/">
-            <img src={Logout} alt="Clique para sair." />
-          </Link>
+          <h1>Bem-vindo(a), {user}!</h1>
+          <img src={Logout} alt="Clique para sair." onClick={signOut} />
         </div>
       </header>
       <Outlet />

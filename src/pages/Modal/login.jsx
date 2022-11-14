@@ -2,16 +2,14 @@ import "./style.scss";
 import Logo from "../../assets/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
+import { setItem } from "../../utils/storage";
 
 const ModalLogin = ({
   id = "close",
   handleModalCadastroOpening,
   onClose = () => {},
 }) => {
-  const { setAuth } = useAuth();
-
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -34,16 +32,23 @@ const ModalLogin = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/auth", {
-        username: user,
-        senha: pwd,
-      });
-      const accessToken = response?.data?.token; //alterar esse caminho
-      const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
+      const response = await axios.post(
+        "/usuarios/auth",
+        {
+          username: user,
+          senha: pwd,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      const { roles } = response?.data;
+      const { username } = response?.data;
+      setItem("roles", roles);
+      setItem("user", username);
       setUser("");
       setPwd("");
-      navigate(from, { replace: true });
+      navigate("/home");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response.");
@@ -68,9 +73,9 @@ const ModalLogin = ({
         <form onSubmit={handleSubmit}>
           <div className="info">
             <input
-              type="email"
-              id="email"
-              placeholder="E-mail"
+              type="text"
+              id="username"
+              placeholder="Username"
               ref={userRef}
               autoComplete="off"
               onChange={(e) => setUser(e.target.value)}

@@ -9,8 +9,7 @@ const ModalCadastro = ({
   onClose = () => {},
 }) => {
   const errRef = useRef();
-  const [nome, setNome] = useState("");
-  const [username, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [senha, setSenha] = useState("");
   const [matchSenha, setMatchSenha] = useState("");
   const [validMatch, setValidMatch] = useState(false);
@@ -26,12 +25,11 @@ const ModalCadastro = ({
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!nome || !username || !senha) {
+    if (!username || !senha) {
       setErrMsg("Por favor, preencha todos os campos.");
     }
     try {
-      const response = await axios.post("/alunos/signup", {
-        nome,
+      const response = await axios.post("/usuarios/signup", {
         username,
         senha,
       });
@@ -68,20 +66,10 @@ const ModalCadastro = ({
           <div className="info">
             <input
               type="text"
-              id="nome"
-              placeholder="Nome completo"
+              id="username"
+              placeholder="Username"
               autoComplete="off"
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
-          </div>
-          <div className="info">
-            <input
-              type="email"
-              id="email"
-              placeholder="E-mail"
-              autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
@@ -108,11 +96,7 @@ const ModalCadastro = ({
           <p id="confirmnote" className={!validMatch ? "show" : "hide"}>
             A senha deve ser a mesma nos dois campos.
           </p>
-          <button
-            disabled={
-              !nome || !username || !senha || !validMatch ? true : false
-            }
-          >
+          <button disabled={!username || !senha || !validMatch ? true : false}>
             Cadastrar
           </button>
           <p className="cadastro">

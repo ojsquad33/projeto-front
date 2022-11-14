@@ -1,38 +1,38 @@
-const BarraProgresso = (props) => {
-    const { bgcolor, completed } = props;
-  
-    const containerStyles = {
-      height: '30px',
-      width: '100%',
-      backgroundColor: "lightgray",
-      borderRadius: 50,
-      marginBottom: '30px',
-    }
-  
-    const fillerStyles = {
-      height: '100%',
-      width: `${completed}%`,
-      backgroundColor: bgcolor,
-      borderRadius: 'inherit',
-      textAlign: 'center',
-      transition: 'width 1s ease-in-out',
-    }
-  
-    const labelStyles = {
-      position: 'relative',
-      top: '5px',
-      left: '5px',
-      color: 'white',
-      fontWeight: 'bold'
-    }
-  
-    return (
-      <div style={containerStyles}>
-        <div style={fillerStyles}>
-          <span style={labelStyles}>{`${completed}%`}</span>
-        </div>
-      </div>
-    );
+const BarraProgresso = ({ bgcolor, completed }) => {
+  const containerStyles = {
+    height: "3vh",
+    width: "100%",
+    backgroundColor: "rgb(211, 211, 211)",
+    border: "1px solid rgb(128, 128, 128)",
+    borderRadius: "20px",
+    marginBottom: "5vh",
   };
-  
-  export default BarraProgresso;
+
+  const fillerStyles = {
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
+    width: `${completed}%`,
+    backgroundColor: bgcolor,
+    borderRadius: "inherit",
+    transition: "width 0.5s ease-in-out",
+  };
+
+  const labelStyles = {
+    padding: "0 1vh",
+    fontSize: "1.7vh",
+    backgroundColor: "transparent",
+    color: "black",
+    fontWeight: "700",
+  };
+
+  return (
+    <div style={containerStyles}>
+      <div style={fillerStyles}>
+        <span style={labelStyles}>{completed}%</span>
+      </div>
+    </div>
+  );
+};
+
+export default BarraProgresso;

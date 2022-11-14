@@ -2,8 +2,9 @@ import "./style.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Accordion = ({ modulo }) => {
+const Accordion = ({ curso }) => {
   const [isOpen, setOpen] = useState(false);
+
   return (
     <div className="accordion-wrapper">
       <div
@@ -13,20 +14,19 @@ const Accordion = ({ modulo }) => {
         <div className="trilha-info">
           <Link
             to={{
-              pathname: `/aula/${modulo.id}`,
+              pathname: `/aula/${curso[0].id}`,
             }}
           >
             Acessar
           </Link>
-          {modulo.nome}
+          {curso[0].nome}
         </div>
       </div>
       <div className={`accordion-item ${!isOpen ? "collapsed" : ""}`}>
         <div className="accordion-content">
-          {modulo.aulas &&
-            modulo.aulas.map((aula, index) => {
-              return <li key={index}>{aula}</li>;
-            })}
+          {curso[0].aulas.map((aula, index) => {
+            return <li key={index}>{aula.titulo}</li>;
+          })}
         </div>
       </div>
     </div>

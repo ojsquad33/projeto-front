@@ -7,8 +7,8 @@ const Card = ({ trilha, setCliqueAtivo, setTrilhaAtual }) => {
   };
   return (
     <div className="trilha" onClick={mostrarAulas}>
-      <img src={trilha.imagem} alt="Imagem da trilha." />
-      <p>{trilha.trilha}</p>
+      <img src={trilha.urlImagem} alt="Imagem da trilha." />
+      <p>{trilha.nomeDaTrilha}</p>
     </div>
   );
 };
