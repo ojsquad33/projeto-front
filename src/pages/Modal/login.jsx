@@ -32,16 +32,10 @@ const ModalLogin = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "/usuarios/auth",
-        {
-          username: user,
-          senha: pwd,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("/usuarios/auth", {
+        username: user,
+        senha: pwd,
+      });
       const { roles } = response?.data;
       const { username } = response?.data;
       setItem("roles", roles);

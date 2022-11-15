@@ -3,7 +3,6 @@ import Logo from "../../assets/logo.png";
 import Trilhas from "../../components/Trilhas";
 import ModalLogin from "../Modal/login";
 import ModalCadastro from "../Modal/cadastro";
-import trilhas from "../../services/database";
 import { useState } from "react";
 
 function Login() {
@@ -11,7 +10,7 @@ function Login() {
   const [modalCadastroIsOpen, setModalCadastroIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [cliqueAtivo, setCliqueAtivo] = useState(false);
-  const [trilhaAtual, setTrilhaAtual] = useState(trilhas[0]);
+  const [trilhaAtual, setTrilhaAtual] = useState();
   const handleModalLoginOpening = () => {
     setModalLoginIsOpen(true);
   };
@@ -35,14 +34,14 @@ function Login() {
       />
       {modalLoginIsOpen && (
         <ModalLogin
-          key={trilhas.id}
+          key={1}
           handleModalCadastroOpening={handleModalCadastroOpening}
           onClose={() => setModalLoginIsOpen(false)}
         />
       )}
       {modalCadastroIsOpen && (
         <ModalCadastro
-          key={trilhas.id}
+          key={2}
           handleModalLoginOpening={handleModalLoginOpening}
           onClose={() => setModalCadastroIsOpen(false)}
         />

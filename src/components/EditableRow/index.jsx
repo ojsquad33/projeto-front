@@ -10,52 +10,52 @@ const EditableRow = ({
   if (opcao == "Trilhas") {
     return (
       <tr className="edit-row">
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="Digite o nome da trilha..."
-            defaultValue={editFormData.trilha}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="Digite o nome da trilha..."
-            defaultValue="URL - Imagem"
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="Digite a descrição..."
-            defaultValue={editFormData.descricao}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
-        <td className="save-cancel">
-          <button className="salvar" type="submit"></button>
-          <button
-            className="cancelar"
-            type="button"
-            onClick={handleCancelClick}
-          ></button>
-        </td>
+        <form action="">
+          <td></td>
+          <td>
+            <input
+              type="text"
+              required="required"
+              placeholder="Digite o nome da trilha..."
+              onChange={handleEditFormChange}
+            ></input>
+          </td>
+          <td>
+            <input
+              type="text"
+              required="required"
+              placeholder="Digite o url da imagem..."
+              onChange={handleEditFormChange}
+            ></input>
+          </td>
+          <td>
+            <input
+              type="text"
+              required="required"
+              placeholder="Digite a descrição..."
+              onChange={handleEditFormChange}
+            ></input>
+          </td>
+          <td className="save-cancel">
+            <button className="salvar" type="submit"></button>
+            <button
+              className="cancelar"
+              type="button"
+              onClick={handleCancelClick}
+            ></button>
+          </td>
+        </form>
       </tr>
     );
   } else if (opcao == "Cursos") {
     return (
       <tr className="edit-row">
+        <td></td>
         <td>
           <input
             type="text"
             required="required"
             placeholder="Digite o nome do curso..."
-            defaultValue={editFormData.nome}
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -63,8 +63,15 @@ const EditableRow = ({
           <input
             type="text"
             required="required"
-            placeholder="Digite o título das aulas..."
-            defaultValue={editFormData.aulas}
+            placeholder="Digite a descricao do curso..."
+            onChange={handleEditFormChange}
+          ></input>
+        </td>
+        <td>
+          <input
+            type="text"
+            required="required"
+            placeholder="Digite o id da trilha..."
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -81,12 +88,12 @@ const EditableRow = ({
   } else if (opcao == "Aulas") {
     return (
       <tr className="edit-row">
+        <td></td>
         <td>
           <input
             type="text"
             required="required"
             placeholder="Digite o nome da aula..."
-            defaultValue={editFormData.nome}
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -94,8 +101,7 @@ const EditableRow = ({
           <input
             type="text"
             required="required"
-            placeholder="Digite o conteúdo da aula..."
-            defaultValue={editFormData.aulas}
+            placeholder="Digite a descrição da aula..."
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -104,7 +110,6 @@ const EditableRow = ({
             type="text"
             required="required"
             placeholder="Digite o professor da aula..."
-            defaultValue="Professor"
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -113,7 +118,6 @@ const EditableRow = ({
             type="text"
             required="required"
             placeholder="Digite a URL da aula..."
-            defaultValue="URL"
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -122,7 +126,6 @@ const EditableRow = ({
             type="text"
             required="required"
             placeholder="Digite o tipo da aula..."
-            defaultValue="Tipo"
             onChange={handleEditFormChange}
           ></input>
         </td>
@@ -144,16 +147,6 @@ const EditableRow = ({
             type="text"
             required="required"
             placeholder="Digite o nome do usuário..."
-            defaultValue={editFormData.nome}
-            onChange={handleEditFormChange}
-          ></input>
-        </td>
-        <td>
-          <input
-            type="text"
-            required="required"
-            placeholder="Digite o e-mail do usuário..."
-            defaultValue={editFormData.email}
             onChange={handleEditFormChange}
           ></input>
         </td>

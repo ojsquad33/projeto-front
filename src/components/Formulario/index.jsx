@@ -7,18 +7,14 @@ const Formulario = ({
   coluna3,
   coluna4,
   coluna5,
+  coluna6,
+  coluna7,
   handleAddFormChange,
   handleAddFormSubmit,
 }) => {
   if (opcao == "Trilhas") {
     return (
       <form onSubmit={handleAddFormSubmit}>
-        <input
-          type="text"
-          required="required"
-          placeholder={coluna1}
-          onChange={handleAddFormChange}
-        />
         <input
           type="text"
           required="required"
@@ -29,6 +25,12 @@ const Formulario = ({
           type="text"
           required="required"
           placeholder={coluna3}
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          required="required"
+          placeholder={coluna4}
           onChange={handleAddFormChange}
         />
         <button className="btn-add" type="submit">
@@ -42,13 +44,19 @@ const Formulario = ({
         <input
           type="text"
           required="required"
-          placeholder={coluna1}
+          placeholder={coluna2}
           onChange={handleAddFormChange}
         />
         <input
           type="text"
           required="required"
-          placeholder={coluna2}
+          placeholder={coluna3}
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="text"
+          required="required"
+          placeholder={coluna4}
           onChange={handleAddFormChange}
         />
         <button className="btn-add" type="submit">
@@ -59,12 +67,6 @@ const Formulario = ({
   } else if (opcao == "Aulas") {
     return (
       <form onSubmit={handleAddFormSubmit}>
-        <input
-          type="text"
-          required="required"
-          placeholder={coluna1}
-          onChange={handleAddFormChange}
-        />
         <input
           type="text"
           required="required"
@@ -89,6 +91,18 @@ const Formulario = ({
           placeholder={coluna5}
           onChange={handleAddFormChange}
         />
+        <input
+          type="text"
+          required="required"
+          placeholder={coluna6}
+          onChange={handleAddFormChange}
+        />
+        <input
+          type="number"
+          required="required"
+          placeholder={coluna7}
+          onChange={handleAddFormChange}
+        />
         <button className="btn-add" type="submit">
           Adicionar
         </button>
@@ -101,12 +115,6 @@ const Formulario = ({
           type="text"
           required="required"
           placeholder={coluna1}
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          required="required"
-          placeholder={coluna2}
           onChange={handleAddFormChange}
         />
         <button className="btn-add" type="submit">

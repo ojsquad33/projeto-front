@@ -1,4 +1,3 @@
-import { React, useState } from "react";
 import "./style.css";
 
 const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
@@ -6,8 +5,9 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     if (opcao == "Trilhas") {
       return (
         <tr className="linha">
-          <td>{trilha.trilha}</td>
-          <td>URL - Imagem</td>
+          <td>{trilha.id}</td>
+          <td>{trilha.nomeDaTrilha}</td>
+          <td>{trilha.urlImagem}</td>
           <td>{trilha.descricao}</td>
           <td className="btn-action">
             <button
@@ -26,8 +26,10 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     } else if (opcao == "Cursos") {
       return (
         <tr className="linha">
+          <td>{trilha.id}</td>
           <td>{trilha.nome}</td>
-          <td>Descrição dos cursos</td>
+          <td>{trilha.descricao}</td>
+          <td>{trilha.trilha_id}</td>
           <td className="btn-action">
             <button
               type="button"
@@ -45,11 +47,14 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     } else if (opcao == "Aulas") {
       return (
         <tr className="linha">
-          <td>{trilha.nome}</td>
-          <td>{trilha.aulas}</td>
-          <td>Professor</td>
-          <td>URL</td>
-          <td>Tipo</td>
+          <td>{trilha.id}</td>
+          <td>{trilha.titulo}</td>
+          <td>{trilha.descricao}</td>
+          <td>{trilha.professor}</td>
+          <td>{trilha.url}</td>
+          <td>{trilha.tipo}</td>
+          <td>{trilha.curso_id}</td>
+          <td>{trilha.concluido}</td>
           <td className="btn-action">
             <button
               type="button"
@@ -67,8 +72,8 @@ const ReadOnlyRow = ({ trilha, handleEditClick, handleDeleteClick, opcao }) => {
     } else if (opcao == "Usuários") {
       return (
         <tr className="linha">
-          <td>{trilha.nome}</td>
-          <td>{trilha.email}</td>
+          <td>{trilha.username}</td>
+          <td>{trilha.admin}</td>
           <td className="btn-action">
             <button
               type="button"

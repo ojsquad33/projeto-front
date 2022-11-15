@@ -1,13 +1,15 @@
 import "./style.scss";
 import Trilhas from "../../components/Trilhas";
 import ListaCurso from "../../components/ListaCurso";
-import { useState, useEffect } from "react";
-import trilhas from "../../services/database";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { getItem } from "../../utils/storage";
 
 function Home() {
   const [cliqueAtivo, setCliqueAtivo] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const [trilhaAtual, setTrilhaAtual] = useState(trilhas[0]);
+  const [trilhaAtual, setTrilhaAtual] = useState();
+  const roles = getItem("roles").split(",");
 
   return (
     <div className="page-home">
@@ -24,6 +26,11 @@ function Home() {
           cliqueAtivo={cliqueAtivo}
           setCliqueAtivo={setCliqueAtivo}
         />
+      )}
+      {roles.includes("ADM") && (
+        <Link to="/admin" className="go-home">
+          Ir para o lounge de admin →
+        </Link>
       )}
     </div>
   );

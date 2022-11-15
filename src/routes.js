@@ -16,7 +16,7 @@ export default function MainRoutes() {
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Route>
 
-      <Route element={<RequireAuth allowedRoles={["USER", "ADM,USER"]} />}>
+      <Route element={<RequireAuth allowedRoles={["USER", "ADM"]} />}>
         <Route path="home" element={<Header text="Trilhas Orange Evolution" />}>
           <Route path="" element={<Home />} />
         </Route>
@@ -25,7 +25,7 @@ export default function MainRoutes() {
         </Route>
       </Route>
 
-      <Route element={<RequireAuth allowedRoles={["ADM,USER"]} />}>
+      <Route element={<RequireAuth allowedRoles={["ADM"]} />}>
         <Route path="admin" element={<Header text="Configurações" />}>
           <Route path="" element={<Admin />} />
         </Route>

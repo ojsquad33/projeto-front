@@ -10,9 +10,7 @@ function ListaAulas({ setUrlVideo }) {
 
   const getCurso = async () => {
     try {
-      const { data } = await axios.get(`/cursos`, {
-        withCredentials: true,
-      });
+      const { data } = await axios.get(`/cursos`);
       setCursos(data);
     } catch (error) {
       console.error(error);
@@ -34,7 +32,7 @@ function ListaAulas({ setUrlVideo }) {
             <ul>
               {cursos.map((curso, index) => {
                 if (
-                  // curso.trilha_id === cursoAtual.trilha_id &&
+                  curso.trilha_id === cursoAtual.trilha_id &&
                   curso.id !== cursoAtual.id
                 ) {
                   return (

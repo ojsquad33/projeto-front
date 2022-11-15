@@ -2,24 +2,38 @@ import "./style.scss";
 import Logo2 from "../../assets/logo2.svg";
 import Logout from "../../assets/logout.svg";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
-import cursos from "../../services/database_cursos";
-import trilhasSemPaginacao from "../../services/database_all";
-import { clear } from "../../utils/storage";
-import { getItem } from "../../utils/storage";
+import { clear, getItem } from "../../utils/storage";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
 
 const Header = ({ text }) => {
   const navigate = useNavigate();
   let { curso_id } = useParams();
-  let curso = cursos.find((curso) => curso.id === Number(curso_id));
-  let title = !text
-    ? `Trilha: ${trilhasSemPaginacao[curso.trilha_id - 1].trilha}`
-    : text;
+  const [trilha, setTrilha] = useState([]);
+
+  const getCurso = async () => {
+    try {
+      const { data } = await axios.get(`/cursos`);
+      const curso = data.find((curso) => curso.id === Number(curso_id));
+      const { data: data1 } = await axios.get(`/trilhas/${curso.trilha_id}`);
+      setTrilha(data1);
+    } catch (error) {
+      return text;
+    }
+  };
+
+  let title = !text ? `Trilha: ${trilha.nomeDaTrilha}` : text;
   const user = getItem("user");
 
   const signOut = async () => {
     clear();
     navigate("/");
   };
+
+  useEffect(() => {
+    getCurso();
+  }, []);
+
   return (
     <div className="header-pages">
       <header>
