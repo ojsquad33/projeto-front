@@ -39,8 +39,8 @@ Você pode visualizar a ideia inicial do projeto através [DESTE LINK](https://w
 
 ## 💡 Desenvolvedores
 
-Olivia | [Linkedin](https://www.linkedin.com/in/olivia-uesugui)
+Olivia | [Linkedin](https://www.linkedin.com/in/olivia-uesugui) | [Github](https://github.com/olivia-tiemi)
 
-Renan | [Linkedin](https://www.linkedin.com/in/renan-leite-vieira-b81a85247/)
+Renan | [Linkedin](https://www.linkedin.com/in/renan-leite-vieira-b81a85247/) | [Github](https://github.com/renanleitev)
 
 ---
